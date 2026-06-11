@@ -1,0 +1,10 @@
+// SASS Configuration for Dart Sass (recommended)
+// Place this in project root if using a build tool that reads it
+
+{
+  "sourceMap": true,
+  "outputStyle": "expanded",
+  "precision": 5,
+  "lineFeed": "lf",
+  "importer": []
+}

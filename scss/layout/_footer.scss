@@ -1,0 +1,108 @@
+// ========================================
+// FOOTER (Quiet Luxury Medical Layout)
+// ========================================
+
+.footer {
+  background-color: $color-primary-dark; // Deep, elegant midnight navy
+  color: #d1e7ff; // Soft high-contrast light blue text tone for perfect readability
+  font-family: $font-family-base;
+  overflow: hidden;
+
+  // Typography Settings
+  .footer-title {
+    color: $color-white;
+    font-size: 1.25rem;
+    font-weight: $font-weight-bold;
+    line-height: 1.3;
+    letter-spacing: $letter-spacing-tight;
+  }
+
+  .footer-subtitle {
+    color: $color-white;
+    font-size: 0.95rem;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .footer-text {
+    color: #cbdbee; // Elevated text brightness for compliance accessibility
+    font-size: 0.9rem;
+    line-height: $line-height-relaxed;
+  }
+
+  // Quick Links Hover Transitions
+  .footer-links {
+    li {
+      margin-bottom: 0.65rem;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    a {
+      color: #cbdbee;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all $transition-fast;
+      display: inline-block;
+
+      &:hover {
+        color: $color-white;
+        transform: translateX(4px); // Editorial soft shift signature look
+      }
+    }
+  }
+
+  // Active Anchor Contacts
+  .contact-link {
+    color: $color-white;
+    text-decoration: none;
+    font-weight: $font-weight-medium;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all $transition-fast;
+
+    &:hover {
+      color: $color-primary-light;
+      border-bottom-color: $color-primary-light;
+    }
+  }
+}
+
+// ===== POLISHED EMBEDDED MAP CONTAINER =====
+.footer-map-container {
+  width: 100%;
+  height: 160px;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color $transition-fast;
+
+  &:hover {
+    border-color: rgba(164, 219, 255, 0.3); // Subtle reactive highlight glow
+  }
+
+  iframe {
+    filter: grayscale(10%) contrast(105%); // Matches understated aesthetic tones
+  }
+}
+
+// ===== ACCESSIBILITY COMPLIANT COPYRIGHT =====
+.copyright {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
+  text-align: center;
+
+  p {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.5px;
+  }
+}
+
+.footer-phone {
+  font-size: 1rem;
+}

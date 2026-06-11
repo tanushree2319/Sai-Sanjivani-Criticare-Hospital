@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book an Appointment | Sai Sanjivani Criticare Hospital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body class="bg-soft">
+
+    <div id="header-placeholder"></div>
+
+    <!-- FORM SECTION -->
+    <main style="margin-top: 120px; margin-bottom: 60px;">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-10 col-lg-8">
+            <div class="bg-white p-4 p-md-5 rounded-lg shadow-md">
+              <div class="text-center mb-4">
+                <span class="badge bg-light text-primary mb-2">Secure Booking Portal</span>
+                <h1 class="h2 fw-bold text-primary">Schedule Your Consultation</h1>
+                <p class="text-muted">Fill out the details below to instantly generate your appointment request on WhatsApp.</p>
+              </div>
+
+              <form id="whatsapp-booking-form" novalidate>
+                <div class="row g-3">
+                  <!-- Full Name -->
+                  <div class="col-12">
+                    <label for="fullName" class="form-label fw-medium">Full Name <span class="text-danger">*</span></label>
+                    <input type="text" id="fullName" class="form-control" placeholder="Enter your full name" required />
+                    <div class="invalid-feedback">Please enter your name.</div>
+                  </div>
+
+                  <!-- Phone Number -->
+                  <div class="col-12 col-sm-6">
+                    <label for="phone" class="form-label fw-medium">Phone Number <span class="text-danger">*</span></label>
+                    <input type="tel" id="phone" class="form-control" placeholder="10-digit mobile number" required pattern="[0-9]{10}" />
+                    <div class="invalid-feedback">Please enter a valid 10-digit phone number.</div>
+                  </div>
+
+                  <!-- Email Address -->
+                  <div class="col-12 col-sm-6">
+                    <label for="email" class="form-label fw-medium">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="name@example.com" />
+                  </div>
+
+                  <!-- Preferred Date -->
+                  <div class="col-12 col-sm-6">
+                    <label for="prefDate" class="form-label fw-medium">Preferred Appointment Date</label>
+                    <input type="date" id="prefDate" class="form-control" />
+                  </div>
+
+                  <!-- Department / Specialty Selection -->
+                  <div class="col-12 col-sm-6">
+                    <label for="department" class="form-label fw-medium">Department / Consultation Specialty</label>
+                    <select id="department" class="form-select">
+                      <option value="" selected>-- Select Specialty (Optional) --</option>
+                      <option value="General Consultation & Medicines">General Consultation & Medicines</option>
+                      <option value="Critical Care Medicine & ICU">Critical Care Medicine & ICU</option>
+                      <option value="Laparoscopic & General Surgery">Laparoscopic & General Surgery</option>
+                      <option value="Orthopedic & Neurosurgery">Orthopedic & Neurosurgery</option>
+                      <option value="Onco Surgery (Cancer Specialty)">Onco Surgery (Cancer Specialty)</option>
+                      <option value="Gynecology & Obstetrics">Gynecology & Obstetrics</option>
+                      <option value="Pediatrics (Child Care)">Pediatrics (Child Care)</option>
+                      <option value="Urology">Urology</option>
+                      <option value="Plastic Surgery">Plastic Surgery</option>
+                      <option value="Trauma & Emergency Care">Trauma & Emergency Care</option>
+                      <option value="Psychiatric & Mental Health">Psychiatric & Mental Health</option>
+                      <option value="Physiotherapy & Rehab">Physiotherapy & Rehab</option>
+                      <option value="ENT Surgery">ENT Surgery</option>
+                      <option value="Nephrology (Kidney Care)">Nephrology (Kidney Care)</option>
+                      <option value="Ophthalmology (Eye Care)">Ophthalmology (Eye Care)</option>
+                    </select>
+                  </div>
+
+                  <!-- Doctor Selection extracted accurately from image_c8efbc.png -->
+                  <div class="col-12">
+                    <label for="doctor" class="form-label fw-medium">Preferred Medical Specialist</label>
+                    <select id="doctor" class="form-select">
+                      <option value="" selected>-- Select Doctor (Optional) --</option>
+                      <option value="Dr. Pankaj Patil (Clinic)">Dr. Pankaj Patil (Clinic)</option>
+                      <option value="Dr. Tushar Gavade">Dr. Tushar Gavade</option>
+                      <option value="Dr. Mahesh Sonkar">Dr. Mahesh Sonkar</option>
+                      <option value="Dr. Atish Dixit">Dr. Atish Dixit</option>
+                      <option value="Dr. Rahul Chaskar">Dr. Rahul Chaskar</option>
+                      <option value="Dr. Vaibhav Lokhande">Dr. Vaibhav Lokhande</option>
+                      <option value="Dr. Pankaj Bharambe">Dr. Pankaj Bharambe</option>
+                      <option value="Dr. Suraj Nair">Dr. Suraj Nair</option>
+                      <option value="Dr. Amit Garud">Dr. Amit Garud</option>
+                      <option value="Dr. Lester Pereira">Dr. Lester Pereira</option>
+                      <option value="Dr. Santosh Yadav">Dr. Santosh Yadav</option>
+                      <option value="Dr. Vivek Jadav">Dr. Vivek Jadav</option>
+                      <option value="Dr. Snehal Patil">Dr. Snehal Patil</option>
+                      <option value="Dr. Sandip Naik">Dr. Sandip Naik</option>
+                      <option value="Dr. Samir Parekha">Dr. Samir Parekha</option>
+                      <option value="Dr. Avinash Talele">Dr. Avinash Talele</option>
+                      <option value="Dr. Somanth Srayas">Dr. Somanth Srayas</option>
+                      <option value="Dr. Sanjay Singh">Dr. Sanjay Singh</option>
+                      <option value="Dr. Deepak Suchak">Dr. Deepak Suchak</option>
+                      <option value="Dr. Mataf Farid">Dr. Mataf Farid</option>
+                      <option value="Dr. Rutika Bhosale">Dr. Rutika Bhosale</option>
+                      <option value="Dr. Ruchita Sharma">Dr. Ruchita Sharma</option>
+                      <option value="Dr. Bhushan Patil">Dr. Bhushan Patil</option>
+                      <option value="Dr. Santosh Kamble">Dr. Santosh Kamble</option>
+                      <option value="Dr. Nikhil Patil">Dr. Nikhil Patil</option>
+                      <option value="Dr. Vinit Chaudhari">Dr. Vinit Chaudhari</option>
+                      <option value="Dr. Parag Telavane">Dr. Parag Telavane</option>
+                      <option value="Dr. Jayant Vishe">Dr. Jayant Vishe</option>
+                    </select>
+                  </div>
+
+                  <!-- Additional Message -->
+                  <div class="col-12">
+                    <label for="message" class="form-label fw-medium">Additional Medical History or Message</label>
+                    <textarea id="message" class="form-control" rows="4" placeholder="Describe symptoms or reasons for visit..."></textarea>
+                  </div>
+
+                  <!-- Submit button -->
+                  <div class="col-12 mt-4 text-center">
+                    <button type="submit" class="btn-confirm w-100 py-3" style="max-width: 400px; border:none;">
+                      Confirm Appointment
+                    </button>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

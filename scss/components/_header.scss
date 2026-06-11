@@ -1,0 +1,600 @@
+// ========================================
+// HEADER & NAVIGATION (Bootstrap Hybrid)
+// ========================================
+
+
+
+
+.header {
+  // Layering is managed natively by Bootstrap's `.fixed-top` utility class
+  z-index: 1000;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+  transition: all $transition-normal;
+  // padding: 1.125rem 0;
+ 
+  // ========================================
+  // 1. MOBILE DEFAULTS (Screens under 1200px)
+  // Sticky & Solid: Automatically pushes the hero section down naturally
+  // ========================================
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(12px);
+  padding: 0.45rem 0;
+  border-bottom-color: rgba(0, 0, 0, 0.05);
+
+
+
+
+  // ========================================
+  // 2. DESKTOP OVERRIDES (Screens 1200px and up)
+  // Fixed & Transparent: Slides cleanly over the background video
+  // ========================================
+  @media (min-width: 1200px) {
+    position: fixed;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+    box-shadow: none;
+    backdrop-filter: none;
+    padding: 1.125rem 0;
+    border-bottom-color: transparent;
+   
+    // ===== MORPHING SOLID STATE =====
+  // Using `:has(.show)` forces the menu background to remain solid while the mobile drawer is expanded
+  &:hover,
+  &.scrolled,
+  &:has(.show) {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(12px);
+    padding: 0.75rem 0;
+    border-bottom-color: rgba(0, 0, 0, 0.05);
+  }
+}
+}
+// ===== BRAND IDENTITY =====
+.brand {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  text-decoration: none;
+}
+
+
+
+
+.brand-logo {
+  width: 46px;
+  height: 46px;
+  border-radius: $border-radius-circle;
+  object-fit: contain;
+  transition: transform $transition-fast;
+
+
+
+
+  .header:hover &,
+  .header.scrolled &,
+  .header:has(.show) & {
+    transform: scale(1.04);
+  }
+}
+
+
+
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+
+
+
+
+  h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: $font-weight-bold;
+   
+    // 1. MOBILE DEFAULT: Dark text to stand out against the solid white mobile header background
+    color: $color-text-dark;
+   
+    letter-spacing: -0.3px;
+    transition: color $transition-fast;
+
+
+
+
+    // Responsive tweak: Shrink slightly on small screens to fit the row
+    @media (max-width: 420px) {
+      font-size: 1.05rem;
+    }
+
+
+
+
+    // 2. DESKTOP OVERRIDE: Turn white on large viewports because the header background starts dark/transparent
+    @media (min-width: 1200px) {
+      color: $color-white;
+    }
+
+
+
+
+    // Turns into your accent/primary color when hovered or active
+    .header:hover &,
+    .header.scrolled &,
+    .header:has(.show) & {
+      color: $color-primary;
+    }
+  }
+
+
+
+
+  span {
+    font-size: 0.75rem;
+
+
+
+
+    // 3. MOBILE DEFAULT: Muted dark grey text for small screens
+    color: #6c757d;
+   
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+    transition: color $transition-fast;
+
+
+
+
+    // Responsive tweak: Shrink slightly on small screens
+    @media (max-width: 420px) {
+      font-size: 0.65rem;
+    }
+
+
+
+
+    // 4. DESKTOP OVERRIDE: Soft light blue-grey color on dark transparent desktop backgrounds
+    @media (min-width: 1200px) {
+      color: #cfd8dc;
+    }
+
+
+
+
+    .header:hover &,
+    .header.scrolled &,
+    .header:has(.show) & {
+      color: $color-text-light;
+    }
+  }
+}
+
+
+
+
+// ===== NAVIGATION LINKS =====
+.nav {
+  gap: 1.5rem; // Clean spacing setup across links
+
+
+
+
+  .nav-link {
+    color: $color-white;
+    font-size: 1rem;
+    font-weight: $font-weight-medium;
+    opacity: 0.85;
+    transition: all $transition-fast;
+    padding: 0.5rem 0;
+    position: relative;
+
+
+
+
+    &:hover, &.active {
+      opacity: 1;
+      color: $color-white;
+    }
+
+
+
+
+    &.active {
+      border-bottom: 2px solid #C51F33;
+    }
+
+
+
+
+    // Dropdown view styling adjustments for mobile/tablet contexts
+    @media (max-width: 991.98px) {
+      padding: 0.75rem $spacing-sm;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+     
+      &.active {
+        border-bottom: 1px solid #C51F33;
+        background: rgba(197, 31, 51, 0.03);
+      }
+    }
+
+
+
+
+    // ===== LINK COLOR CHANGEOVER WHEN NAVIGATION GOES SOLID =====
+    .header:hover &,
+    .header.scrolled &,
+    .header:has(.show) & {
+      color: $color-text-dark;
+
+
+
+
+      &:hover, &.active {
+        color: $color-primary;
+      }
+    }
+  }
+
+
+
+
+  // Inside-drawer custom navigation action item for mobile users
+  .mobile-book-link {
+    background: $color-primary;
+    color: $color-white !important;
+    border-radius: $border-radius-sm;
+    font-weight: $font-weight-semibold;
+  }
+}
+
+
+
+
+// ===== INTERACTIVE BURGER ICON OVERRIDES =====
+.navbar-toggler {
+  border: none;
+  padding: 0.5rem;
+ 
+  &:focus {
+    box-shadow: none;
+  }
+
+  .navbar-toggler-icon {
+    // 1. MOBILE DEFAULT: Dark lines against the solid white mobile header
+    filter: none;
+    transition: filter $transition-fast;
+   
+    // 2. DESKTOP OVERRIDE: Crisp white lines over the transparent video background
+    @media (min-width: 1200px) {
+      filter: invert(1);
+    }
+    .header:hover &,
+    .header.scrolled &,
+    .header:has(.show) & {
+      filter: none; // Restores default appearance once the header transitions to a solid white backdrop
+    }
+  }
+}
+
+
+
+// ===== CALL TO ACTION HOVER MATRIX =====
+.cta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+a {
+    padding: 0.55rem 1.15rem;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: $font-weight-semibold;
+    border-radius: $border-radius-pill;
+    transition: all $transition-fast;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    // FIXES DISTORTION: Prevents the emoji and text from breaking into two rows
+    white-space: nowrap;
+
+
+    @media (max-width: 420px) {
+      padding: 0.5rem 0.85rem; // Slightly tighter padding on mobile
+      font-size: 0.8rem;
+    }
+  }
+
+  .emergency-cta {
+    background: rgba(197, 31, 51, 0.15);
+    color: #ff4d6d;
+    border: 2px solid #C51F33;
+    backdrop-filter: blur(4px);
+
+    .header:hover &,
+    .header.scrolled &,
+    .header:has(.show) & {
+      background: #C51F33;
+      color: $color-white;
+       &:hover {
+      box-shadow: $shadow-emergency;
+    }
+    }
+
+    @media (max-width: 1200px ) {
+      background: #C51F33;
+      color: $color-white;
+       &:hover {
+      box-shadow: $shadow-emergency;
+    }
+    }
+
+  }
+  
+
+  .book {
+    background: rgba(255, 255, 255, 0.95);
+    color: $color-primary-dark;
+
+    .header:hover &,
+    .header.scrolled &,
+    .header:has(.show) & {
+      background: $color-primary;
+      color: $color-white;
+      &:hover { background: $color-primary-dark; }
+    }
+
+    @media (max-width: 1200px ) {
+      background: $color-primary;
+      color: $color-white;
+      &:hover { background: $color-primary-dark; }
+    }
+  }
+}
+
+// ===== THEME TOGGLE BUTTON =====
+.theme-toggle {
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  color: $color-text-dark !important;
+  padding: 0.375rem 0.625rem;
+  font-size: 1rem;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  @media (min-width: 1200px) {
+    color: $color-white !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+
+    .header:hover &,
+    .header.scrolled &,
+    .header:has(.show) & {
+      color: $color-text-dark !important;
+      border-color: rgba(0, 0, 0, 0.1) !important;
+    }
+  }
+}
+
+// ===== DARK MODE SUPPORT =====
+[data-bs-theme="dark"] {
+  .header {
+    background: rgba(20, 25, 35, 0.98);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+
+    @media (min-width: 1200px) {
+      background: linear-gradient(to bottom, rgba(20, 25, 35, 0.85) 0%, rgba(20, 25, 35, 0) 100%);
+      
+      &:hover,
+      &.scrolled,
+      &:has(.show) {
+        background: rgba(20, 25, 35, 0.98);
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+
+  .brand-text h2 {
+    color: #ffffff;
+
+    @media (min-width: 1200px) {
+      color: #ffffff;
+    }
+
+    .header:hover &,
+    .header.scrolled &,
+    .header:has(.show) & {
+      color: $color-primary;
+    }
+  }
+
+  .brand-text span {
+    color: #a0a0a0;
+
+    @media (min-width: 1200px) {
+      color: #a0a0a0;
+    }
+
+    .header:hover &,
+    .header.scrolled &,
+    .header:has(.show) & {
+      color: $color-text-light;
+    }
+  }
+
+  .nav-link {
+    color: #e0e0e0;
+
+    &:hover,
+    &.active {
+      color: $color-primary;
+    }
+  }
+
+  .theme-toggle {
+    color: #e0e0e0 !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+// ===== EMERGENCY COMPACT PHONE BUTTON & RINGING EFFECT =====
+.emergency-icon-btn {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  background-color: #C51F33; // Your theme's primary red
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  z-index: 1;
+  box-shadow: 0 4px 15px rgba(197, 31, 51, 0.4);
+
+
+
+
+  .phone-icon {
+    font-size: 1.15rem;
+    z-index: 2;
+    // Optional tilt effect to look like an active handset
+    transform: rotate(-10deg);
+
+
+
+
+    // Forces standard emojis to shift towards a bright, clean white look
+    filter: brightness(0) invert(1);
+  }
+
+
+
+
+  // The pseudo-element or child span creating the pulsing ring ripple
+  .pulse-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid #C51F33;
+    animation: phone-ring-pulse 1.8s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+    z-index: 0;
+    pointer-events: none;
+  }
+}
+
+
+
+
+// ===== CSS PULSE ANIMATION =====
+@keyframes phone-ring-pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.5; // Controls the peak intensity mid-wave
+  }
+  100% {
+    transform: scale(1.6); // How far out the ringing ripple travels
+    opacity: 0;
+  }
+}
+
+
+
+
+// ===== MOBILE MENU (CENTERED FLOATING ISLAND UI) =====
+@media (max-width: 1199.98px) {
+  .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%); // Perfectly centers the card horizontally
+    width: 92%; // Gives it a slight margin on very small mobile screens
+    max-width: 340px; // Prevents it from getting too wide on tablets
+    margin-top: 0.5rem; // Adds a clean gap between the header and the menu card
+   
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 1.5rem 1rem;
+    border-radius: 1.5rem;
+    transition: all 0.3s ease-in-out;
+   
+    .nav {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem; // Slightly tighter gap for a compact card
+    }
+   
+    .nav-link {
+      color: $color-text-dark ; // FIX: Uncommented and mapped to your dark text!
+      font-size: 1.1rem;
+      padding: 0.5rem 1.5rem;
+      width: auto;
+      text-align: center;
+      transition: all 0.2s;
+
+      .mobile-book-link{
+        color: $color-white !important;
+      }
+     
+      &.active {
+        border-bottom: none;
+        color: #C51F33 !important;
+        font-weight: 700;
+        background: rgba(197, 31, 51, 0.08);
+        border-radius: 50px;
+      }
+     
+      // FIX: Clean, isolated hover state specifically for the mobile card
+      &:hover,
+      &:active {
+        color: #C51F33 !important;
+        background: rgba(197, 31, 51, 0.04);
+        border-radius: 50px;
+      }
+    }
+   
+    .mobile-book-link {
+      width: 100%; // Makes the CTA button span the width of the card
+      max-width: 250px;
+      padding: 0.75rem 2rem;
+      margin-top: 0.5rem;
+      border-radius: 50px;
+      box-shadow: 0 4px 15px rgba(197, 31, 51, 0.25);
+      transition: transform 0.2s;
+     
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

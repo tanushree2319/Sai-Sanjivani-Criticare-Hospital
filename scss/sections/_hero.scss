@@ -1,0 +1,241 @@
+// ========================================
+// HERO SECTION WITH VIDEO BACKGROUND
+// ========================================
+
+.hero {
+  height: 100vh;
+  min-height: 600px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #0b151e;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+
+  // Modern CSS Grid layout on mobile handles fluid aspect ratios perfectly
+  @media (max-width: 768px) {
+    height: auto;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+  }
+
+}
+
+// ===== BACKGROUND VIDEO =====
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  // max-height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+  
+    @media (max-width: 768px) {
+    position: relative; // Switch to relative for better mobile handling
+    height: auto;
+    max-height: none;
+    width: 100%;
+  }
+}
+
+// ===== DARK TINT OVERLAY =====
+.overlay {
+ position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 21, 30, 0.6) 0%,
+    rgba(11, 21, 30, 0.4) 50%,
+    rgba(11, 21, 30, 0.7) 100%
+  );
+  z-index: 1;
+
+
+  @media (max-width: 768px) {
+   grid-area: 1 / 1 / 2 / 2; // Overlays perfectly in Row 1, Column 1 on top of the video
+    position: absolute;       // Absolute inside the grid cell bounds
+    height: 100%;            // 2. STRETCHES EXACTLY TO THE NEW VIDEO HEIGHT (No hardcoded vw)
+    background: linear-gradient(
+      to bottom,
+      rgba(11, 21, 30, 0.2) 0%,
+      rgba(11, 21, 30, 0.4) 70%,
+      #0b151e 100%
+    );
+  }
+}
+
+// ===== HERO CENTER WRAPPER =====
+.hero-center {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10vh;
+  pointer-events: none; // Allows clicks to pass through to the video controls  
+
+  //Re-enable pointer events for links/buttons inside the content container
+  .hero-content{  
+    pointer-events: auto;
+  }
+
+  @media (max-width: 768px) {
+    position: relative;
+    height: auto;
+    display: block;
+    padding: 2.25rem $spacing-md $spacing-hero $spacing-md;
+    padding-bottom: 3.5rem;
+    background: #0b151e;
+  }
+
+  @media (max-width: 576px) {
+    padding: 1.75rem $spacing-sm $spacing-xxl $spacing-sm;
+    
+  }
+}
+
+// ===== HERO CONTENT CONTAINER =====
+.hero-content {
+  max-width: 750px;
+  text-align: left;
+  color: $color-white;
+  animation: fadeIn 1s ease-out;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin: 0 0 0.3125rem 0;
+    line-height: $line-height-tight;
+    font-weight: $font-weight-bold;
+    letter-spacing: $letter-spacing-tight;
+    animation: fadeIn 1s ease-out 0.1s both;
+    color: $color-white;
+
+    @media (max-width: 768px) {
+      font-size: clamp(1.65rem, 5.2vw, 2.25rem);
+      margin-bottom: 0.875rem;
+      line-height: 1.25;
+    }
+  }
+
+  .highlight {
+    color: $color-primary-light;
+    transition: color $transition-fast;
+  }
+
+  @media (max-width: 768px) {
+    animation: none;
+  }
+}
+
+// ===== HERO SUBTITLE =====
+.sub {
+  font-size: 1.125rem;
+  color: #e2f1fc;
+  margin-bottom: 1.25rem;
+  max-width: 650px;
+  line-height: $line-height-relaxed;
+  animation: fadeIn 1s ease-out 0.2s both;
+
+  @media (max-width: 768px) {
+    font-size: 1.05rem;
+    margin-bottom: 1.25rem;
+    animation: none;
+  }
+  @media (max-width: 576px) {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
+
+// ===== MARATHI TEXT BOX =====
+.marathi-box {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.75rem 1.125rem;
+  border-radius: $border-radius-sm;
+  border-left: 3px solid $color-primary-light;
+  margin-bottom: 1.25rem;
+  display: inline-block;
+  animation: fadeIn 1s ease-out 0.3s both;
+  backdrop-filter: blur(4px);
+
+  @media (max-width: 768px) {
+    animation: none;
+    margin-bottom: 1rem;
+  }
+
+  .marathi {
+    font-size: 0.9375rem;
+    color: $color-white;
+    margin: 0;
+    font-weight: $font-weight-medium;
+    line-height: $line-height-relaxed;
+
+    @media (max-width: 576px) {
+      font-size: 0.875rem;
+    }
+  }
+}
+
+// ===== HERO ACTIONS =====
+.actions {
+  display: flex;
+  flex-direction: column; // Always one below the other across ALL screens
+  gap: 0.9375rem;
+  align-items: flex-start; // Keeps alignment neatly to the left side
+  flex-wrap: wrap;
+  animation: fadeIn 1s ease-out 0.4s both;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    gap: 0.875rem;
+    animation: none;
+  }
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    gap: 0.75rem;
+
+    a {
+      width: 100%;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.5rem;
+    }
+  }
+}
+
+// ===== RESPONSIVE FONT SIZING =====
+@media (max-width: 992px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .sub {
+    font-size: 1.05rem;
+  }
+}
+
+// ===== SMOOTH VIDEO AUTOPLAY FALLBACK =====
+.hero-video::-webkit-media-controls {
+  display: none;
+}

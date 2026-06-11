@@ -1,0 +1,178 @@
+// ========================================
+// SASS Variables & Bootstrap Overrides
+// ========================================
+
+// ===== CUSTOM COLOR PALETTE (QUIET LUXURY THEME) =====
+$color-primary: #0f4c75;
+$color-primary-dark: #0a314d;
+$color-primary-light: #a4dbff;
+$color-soft: #eaf6ff;
+$color-accent: #3282b8;
+$color-emergency: #C51F33;
+$color-success: #22c55e;
+$color-success-bg: #f0fdf4;
+
+$color-text-dark: #1b262c;
+$color-text-light: #555555;
+$color-white: #ffffff;
+$color-bg-light: #fafafa;
+$color-bg-soft: #f8fbfe;
+$color-border-light: rgba(15, 76, 117, 0.05);
+
+// ===== BOOTSTRAP CORE COLOR OVERRIDES =====
+$primary: $color-primary;
+$secondary: $color-accent;
+$success: $color-success;
+$danger: $color-emergency;
+$warning: #ffc107;
+$info: $color-accent;
+$light: $color-soft;
+$dark: $color-text-dark;
+
+// ===== BOOTSTRAP THEME COLOR MAP =====
+// This extends Bootstrap's default $theme-colors
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "danger": $danger,
+  "warning": $warning,
+  "info": $info,
+  "light": $light,
+  "dark": $dark,
+);
+
+// ===== TYPOGRAPHY =====
+$font-family-base: "Inter", sans-serif;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$font-size-base: 1rem;
+$font-size-sm: 0.875rem;
+$font-size-lg: 1.125rem;
+
+$line-height-base: 1.6;
+$line-height-tight: 1.15;
+$line-height-relaxed: 1.7;
+
+// Letter spacing for editorial feel
+$letter-spacing-tight: -0.02em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 1px;
+$letter-spacing-wider: 1.5px;
+$letter-spacing-widest: 2px;
+
+// ===== SPACING =====
+$spacer: 1rem;
+$spacing-xs: 6px;
+$spacing-sm: 12px;
+$spacing-md: 20px;
+$spacing-lg: 40px;
+$spacing-xl: 60px;
+$spacing-xxl: 80px;
+$spacing-hero: 100px;
+
+// ===== BORDERS & RADIUS =====
+$border-radius-sm: 6px;
+$border-radius-md: 12px;
+$border-radius-lg: 16px;
+$border-radius-pill: 30px;
+$border-radius-circle: 50%;
+
+// ===== SHADOWS =====
+$shadow-sm: 0 0 20px rgba(255, 255, 255, 0.4), 0 10px 20px rgba(0, 0, 0, 0.15);
+$shadow-md: 0 8px 20px rgba(15, 76, 117, 0.15);
+$shadow-lg: 0 20px 40px rgba(15, 76, 117, 0.08);
+$shadow-xl: 0 15px 30px rgba(10, 49, 77, 0.2);
+$shadow-emergency: 0 0 15px rgba(197, 31, 51, 0.4);
+
+// ===== TRANSITIONS =====
+$transition-fast: 0.3s ease;
+$transition-normal: 0.4s ease;
+$transition-slow: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+// ===== CONTAINER =====
+$container-max-width: 1500px;
+$container-padding: 40px;
+
+// ========================================
+// BOOTSTRAP 5 VARIABLE OVERRIDES
+// ========================================
+
+// Colors
+$primary: $color-primary;
+$primary-dark: $color-primary-dark;
+$secondary: $color-accent;
+$success: $color-success;
+$danger: $color-emergency;
+$light: $color-soft;
+$dark: $color-text-dark;
+
+// Body
+$body-bg: $color-bg-light;
+$body-color: $color-text-dark;
+
+// Typography
+$headings-font-family: $font-family-base;
+$headings-color: $color-primary;
+$headings-font-weight: $font-weight-bold;
+
+// Links
+$link-color: $primary;
+$link-decoration: none;
+$link-hover-decoration: none;
+
+// Borders
+$border-radius: $border-radius-lg;
+$border-color: $color-border-light;
+
+// Grid
+$grid-gutter-width: 24px;
+
+// Buttons
+$btn-padding-y: 0.75rem;
+$btn-padding-x: 2rem;
+$btn-font-family: $font-family-base;
+$btn-font-weight: $font-weight-semibold;
+$btn-border-radius: $border-radius-pill;
+$btn-transition: all $transition-fast;
+
+// Forms
+$form-control-border-radius: $border-radius-pill;
+
+// Breakpoints for mobile-first approach
+$breakpoints: (
+  "xs": 0,
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+  "xxl": 1400px
+);
+
+
+
+// ===== APP-SPECIFIC CLEAN FORM ADDITIONS =====
+.bg-soft {
+  background-color: $color-bg-soft !important;
+}
+.form-control, .form-select {
+  border-radius: $border-radius-md !important; // Sleek luxury tracking curve
+  border: 1px solid rgba(15, 76, 117, 0.15);
+  padding: 0.75rem 1.2rem;
+  font-size: $font-size-sm;
+  background-color: $color-bg-light;
+  transition: all $transition-fast;
+  
+  &:focus {
+    background-color: $color-white;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba(15, 76, 117, 0.1);
+  }
+}
+.rounded-lg {
+  border-radius: $border-radius-lg;
+}

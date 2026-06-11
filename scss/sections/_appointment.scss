@@ -1,0 +1,101 @@
+// ========================================
+// APPOINTMENT MODAL & FORM STYLING
+// ========================================
+
+.appointment-modal {
+  .modal-content {
+    border: none;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-lg;
+    background-color: $color-bg-light;
+    overflow: hidden;
+  }
+
+  .modal-header {
+    background-color: $color-primary;
+    color: $color-white;
+    padding: $spacing-md $spacing-lg;
+    border: none;
+
+    .modal-title {
+      font-weight: $font-weight-semibold;
+      letter-spacing: $letter-spacing-tight;
+    }
+
+    .btn-close {
+      filter: invert(1) grayscale(1) brightness(2); // Keeps the close button white
+      opacity: 0.8;
+      &:hover { opacity: 1; }
+    }
+  }
+
+  .modal-body {
+    padding: $spacing-lg;
+  }
+}
+
+// Quiet Luxury Form Controls
+.booking-form {
+  .form-group {
+    margin-bottom: $spacing-md;
+  }
+
+  .form-label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $color-primary-dark;
+    margin-bottom: 6px;
+    display: block;
+
+    .required {
+      color: $color-emergency;
+      margin-left: 2px;
+    }
+  }
+
+  .form-control, .form-select {
+    border: 1px solid rgba(15, 76, 117, 0.15);
+    background-color: $color-white;
+    color: $color-text-dark;
+    padding: 0.75rem 1.2rem;
+    font-size: $font-size-base;
+    border-radius: $border-radius-md; // Overriding pill shape for cleaner input alignment
+    transition: $transition-fast;
+
+    &:focus {
+      border-color: $color-accent;
+      box-shadow: 0 0 0 4px rgba(50, 130, 184, 0.1);
+      outline: none;
+    }
+  }
+
+  select.form-select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%230f4c75' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-size: 12px;
+  }
+
+  textarea.form-control {
+    border-radius: $border-radius-md;
+    resize: none;
+  }
+
+  // .btn-submit {
+  //   background-color: $color-accent;
+  //   color: $color-white;
+  //   font-weight: $font-weight-semibold;
+  //   border: none;
+  //   padding: 0.85rem 2rem;
+  //   width: 100%;
+  //   border-radius: $border-radius-pill;
+  //   box-shadow: $shadow-md;
+  //   transition: $transition-fast;
+  //   margin-top: $spacing-sm;
+
+  //   &:hover {
+  //     background-color: black;
+  //     transform: translateY(-1px);
+  //     box-shadow: $shadow-xl;
+  //   }
+  // }
+}

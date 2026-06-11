@@ -1,0 +1,99 @@
+// ========================================
+// MAIN SCSS ENTRY POINT - Bootstrap 5 Integration
+// ========================================
+
+// ===== 1. CUSTOM VARIABLES (override defaults) =====
+@import "abstracts/variables";
+
+// ===== 2. BOOTSTRAP 5 FULL IMPORT =====
+// Import Bootstrap with our custom variables already defined
+$enable-gradients: false;
+$enable-shadows: false;
+$enable-transitions: true;
+$enable-reduced-motion: true;
+
+// Import complete Bootstrap with our overrides
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// ===== 3. PROJECT STYLES =====
+@import "layout/base";
+@import "layout/footer";
+@import "components/header";
+@import "components/buttons";
+@import "components/badges";
+@import "sections/hero";
+@import "sections/trust-strip";
+@import "sections/about";
+@import "sections/stats";
+@import "sections/doctor";
+@import "sections/reviews";
+@import "sections/service";
+
+// ========================================
+// CUSTOM UTILITIES
+// ========================================
+
+.text-primary {
+  color: $color-primary;
+}
+
+.text-light {
+  color: $color-text-light;
+}
+
+.bg-soft {
+  background-color: $color-soft;
+}
+
+.bg-light-blue {
+  background-color: $color-bg-soft;
+}
+
+.shadow-soft {
+  box-shadow: $shadow-md;
+}
+
+.py-hero {
+  padding-top: $spacing-hero;
+  padding-bottom: $spacing-hero;
+
+  @media (max-width: 768px) {
+    padding-top: $spacing-xxl;
+    padding-bottom: $spacing-xxl;
+  }
+}
+
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: $color-primary;
+  color: $color-white;
+  padding: 8px;
+  z-index: 100;
+
+  &:focus {
+    top: 0;
+  }
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@media print {
+  body {
+    background: $color-white;
+  }
+
+  .header,
+  .footer {
+    display: none;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}

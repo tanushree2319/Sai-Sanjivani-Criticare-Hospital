@@ -1,0 +1,110 @@
+// ========================================
+// ABOUT PREVIEW SECTION
+// ========================================
+
+.about-preview {
+  padding: $spacing-hero 0;
+  background-color: $color-white;
+}
+
+.about-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xl;
+  align-items: center;
+
+  @media (max-width: 992px) {
+    gap: $spacing-lg;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+// ===== ABOUT TEXT SECTION =====
+.about-text {
+  animation: fadeIn 1s ease-out;
+
+  h2 {
+    color: $color-primary;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: $font-weight-semibold;
+    margin-bottom: 1.5rem;
+    letter-spacing: $letter-spacing-tight;
+
+    @media (max-width: 768px) {
+      font-size: 1.75rem;
+      margin-bottom: 1.25rem;
+    }
+  }
+
+  p {
+    color: $color-text-light;
+    font-size: 1rem;
+    line-height: $line-height-relaxed;
+    margin-bottom: 1rem;
+
+    @media (max-width: 576px) {
+      font-size: 0.9375rem;
+    }
+
+    &:last-of-type:not(.marathi) {
+      margin-bottom: $spacing-lg;
+    }
+  }
+
+  // ===== MARATHI TEXT STYLING =====
+  .marathi {
+    font-size: 0.9375rem;
+    color: $color-primary-dark;
+    font-weight: $font-weight-semibold;
+    padding-left: 1rem;
+    border-left: 3px solid $color-accent;
+    margin: 1.5rem 0 2rem 0 !important;
+    line-height: $line-height-relaxed;
+    background: rgba(50, 130, 184, 0.03);
+    padding: 0.75rem 0 0.75rem 1rem;
+    border-radius: 0 $border-radius-sm $border-radius-sm 0;
+
+    @media (max-width: 576px) {
+      font-size: 0.875rem;
+      padding-left: 0.75rem;
+    }
+  }
+}
+
+// ===== ABOUT IMAGE SECTION =====
+.about-img {
+  animation: fadeIn 1s ease-out 0.2s both;
+
+  @media (max-width: 768px) {
+    animation: fadeIn 1s ease-out;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-lg;
+    transition: transform $transition-normal, box-shadow $transition-normal;
+    display: block;
+
+    &:hover {
+      transform: scale(1.01);
+      box-shadow: 0 30px 50px rgba(15, 76, 117, 0.12);
+    }
+  }
+}
+
+// ===== MOBILE STACKING ADJUSTMENTS =====
+@media (max-width: 768px) {
+  .about-wrap {
+    padding: 0;
+
+    .about-img {
+      order: -1;
+    }
+  }
+}

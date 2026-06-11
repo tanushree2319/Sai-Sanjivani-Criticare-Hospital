@@ -1,0 +1,73 @@
+// ========================================
+// TRUST STRIP SECTION
+// ========================================
+
+.trust-strip {
+  padding: $spacing-xl 0; // Using variable semantic tokens
+  background: $color-white;
+  border-top: 1px solid $color-border-light;
+  border-bottom: 1px solid $color-border-light;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: $spacing-lg;
+  text-align: center;
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-xl;
+  }
+
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.trust-item {
+  padding: $spacing-md $spacing-sm;
+  border-radius: $border-radius-md;
+  background: transparent;
+  transition: transform $transition-fast, background-color $transition-fast;
+
+  // Modern subtle background lift on hover to support Quiet Luxury aesthetic
+  &:hover {
+    transform: translateY(-4px);
+    background-color: $color-bg-soft;
+
+    // Triggers color shift on heading when parent item is hovered
+    h4 {
+      color: $color-accent;
+    }
+
+    // Triggers smooth scaling on icon when parent item is hovered
+    .trust-icon {
+      transform: scale(1.15);
+    }
+  }
+
+  h4 {
+    color: $color-primary;
+    margin-bottom: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: $font-weight-semibold;
+    transition: color $transition-fast;
+  }
+
+  p {
+    color: $color-text-light;
+    font-size: 0.875rem;
+    margin: 0;
+    line-height: $line-height-base;
+  }
+}
+
+// ===== ICON INTERACTION ENGINE =====
+.trust-icon {
+  font-size: 2.25rem;
+  margin-bottom: $spacing-sm;
+  display: inline-block; // Allows scaling matrices to calculate correctly
+  transition: transform $transition-fast;
+}

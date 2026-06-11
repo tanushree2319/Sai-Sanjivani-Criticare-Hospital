@@ -1,0 +1,307 @@
+// ========================================
+// BUTTON STYLES & CTA INTERACTIONS
+// ========================================
+
+// ===== PRIMARY ACTION BUTTON MIXIN =====
+@mixin hehe($bg){
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  font-size: 0.9375rem;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  background-color: $bg;
+  border: 2px solid $color-primary;
+  border-radius: $border-radius-pill;
+  text-decoration: none;
+  transition: all $transition-slow;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// ===== MAIN BUTTON APPLICATION =====
+.btn-main {
+  @include hehe(transparent);
+
+  // NESTED INSIDE: So '&' correctly targets '.btn-main'
+  .hero & {
+    background: rgba(255, 255, 255, 0.95);
+    color: $color-primary-dark;
+    padding: 0.875rem 2rem;
+    border: 1px solid $color-white;
+    box-shadow: $shadow-sm;
+
+    &:hover {
+      background: $color-primary-dark;
+      color: $color-white;
+      border-color: $color-primary-dark;
+      box-shadow: 0 10px 25px rgba(10, 49, 77, 0.5);
+    }
+  }
+
+  // NESTED INSIDE: For accurate responsive behavior
+  @media (max-width: 576px) {
+    padding: 0.625rem 1.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+// ===== CONFIRM BUTTON APPLICATION =====
+.btn-confirm {
+  @include hehe(rgba(164, 219, 255, 0.8));
+}
+
+// ===== OUTLINE BUTTON =====
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8125rem 1.75rem;
+  font-size: 0.9375rem;
+  font-weight: $font-weight-semibold;
+  color: $color-white;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: $border-radius-pill;
+  text-decoration: none;
+  transition: all $transition-fast;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  white-space: nowrap;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: $color-white;
+  }
+
+  @media (max-width: 576px) {
+    padding: 0.625rem 1.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+// ===== SECONDARY BUTTON (IF NEEDED) =====
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  font-size: 0.9375rem;
+  font-weight: $font-weight-semibold;
+  background-color: $color-accent;
+  color: $color-white;
+  border: none;
+  border-radius: $border-radius-pill;
+  text-decoration: none;
+  transition: all $transition-fast;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lighten($color-accent, 5%);
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+}
+
+// ===== SMALL BUTTON VARIANT =====
+.btn-sm {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: $font-weight-medium;
+}
+
+// ===== FULL WIDTH BUTTON =====
+.btn-block {
+  width: 100%;
+  display: block;
+}
+
+// ===== BUTTON GROUP FOR MULTIPLE ACTIONS =====
+.btn-group-horizontal {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    gap: 0.75rem;
+
+    a {
+      width: 100%;
+    }
+  }
+}
+
+// ===== DISABLED STATE =====
+[disabled],
+.btn-main:disabled,
+.btn-outline:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+
+  &:hover {
+    transform: none;
+  }
+}
+
+// ===== LOADING STATE (OPTIONAL) =====
+.btn-loading {
+  position: relative;
+  pointer-events: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin: -8px 0 0 -8px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+// ==========================================================================
+// FLOATING ACTIONS (HIGH-CONTRAST / QUIET LUXURY)
+// ==========================================================================
+.floating-contact-actions {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  z-index: 1060;
+
+  .floating-btn {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 30px;
+    padding: 4px;
+    background: #ffffff;
+    
+    // Micro-border to define boundaries cleanly on white backgrounds
+    border: 1px solid rgba(0, 0, 0, 0.06); 
+    
+    // Multi-layered crisp shadow profile for distinct elevation
+    box-shadow: 
+      0 4px 12px rgba(0, 0, 0, 0.05),
+      0 1px 3px rgba(0, 0, 0, 0.03);
+      
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.2s ease;
+
+    .btn-text-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: #2d3748; // Highly legible slate-dark text
+      padding: 0 4px 0 14px;
+      opacity: 0;
+      max-width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: opacity 0.2s ease, max-width 0.2s ease, padding 0.2s ease;
+    }
+
+    .icon-container {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s ease;
+
+      svg {
+        width: 20px;
+        height: 20px;
+        transition: fill 0.2s ease;
+      }
+    }
+
+    // Interactive Hover Elevation
+    &:hover {
+      transform: translateY(-3px);
+      border-color: rgba(0, 0, 0, 0.12);
+      box-shadow: 
+        0 12px 24px rgba(0, 0, 0, 0.08),
+        0 4px 8px rgba(0, 0, 0, 0.04);
+
+      .btn-text-label {
+        opacity: 1;
+        max-width: 120px;
+        padding: 0 12px 0 16px;
+      }
+    }
+  }
+
+  // Pure baseline accents for distinct identity
+  .float-call {
+    .icon-container {
+      background-color: #ebf5ff;
+      color: #0066cc; 
+    }
+    &:hover {
+      background-color: #0066cc;
+      border-color: #0055aa;
+      .btn-text-label { color: #ffffff; }
+      .icon-container { background-color: #ffffff; }
+    }
+  }
+
+  .float-whatsapp {
+    .icon-container {
+      background-color: #e6f7ed;
+      color: #21b857; 
+    }
+    &:hover {
+      background-color: #21b857;
+      border-color: #1ca34d;
+      .btn-text-label { color: #ffffff; }
+      .icon-container { background-color: #ffffff; }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .floating-contact-actions {
+    bottom: 20px;
+    right: 20px;
+    gap: 10px;
+
+    .floating-btn {
+      .icon-container {
+        width: 40px;
+        height: 40px;
+        svg { width: 18px; height: 18px; }
+      }
+      .btn-text-label { display: none; } 
+    }
+  }
+}

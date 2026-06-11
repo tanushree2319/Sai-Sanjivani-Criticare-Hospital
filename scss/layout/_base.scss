@@ -1,0 +1,253 @@
+// ========================================
+// BASE STYLES & TYPOGRAPHY
+// ========================================
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: $font-family-base;
+  color: $color-text-dark;
+  line-height: $line-height-base;
+  background-color: $color-bg-light;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// Dark mode support
+[data-bs-theme="dark"] body {
+  background-color: #1a1f2e;
+  color: #e0e0e0;
+}
+
+[data-bs-theme="dark"] section,
+[data-bs-theme="dark"] main > div {
+  background-color: #1a1f2e;
+  color: #e0e0e0;
+}
+
+[data-bs-theme="dark"] .bg-light {
+  background-color: #2a3038 !important;
+}
+
+[data-bs-theme="dark"] .bg-white {
+  background-color: #252d38 !important;
+}
+
+[data-bs-theme="dark"] .container-fluid {
+  background-color: inherit;
+}
+
+[data-bs-theme="dark"] .card {
+  background-color: #252d38;
+  border-color: #3a4250;
+  color: #e0e0e0;
+}
+
+[data-bs-theme="dark"] .btn-outline-secondary {
+  color: #e0e0e0;
+  border-color: #555;
+}
+
+[data-bs-theme="dark"] .btn-outline-secondary:hover {
+  background-color: #3a4250;
+  border-color: #555;
+  color: #ffffff;
+}
+
+[data-bs-theme="dark"] h1,
+[data-bs-theme="dark"] h2,
+[data-bs-theme="dark"] h3,
+[data-bs-theme="dark"] h4,
+[data-bs-theme="dark"] h5,
+[data-bs-theme="dark"] h6 {
+  color: #ffffff;
+}
+
+[data-bs-theme="dark"] p,
+[data-bs-theme="dark"] span,
+[data-bs-theme="dark"] li {
+  color: #e0e0e0;
+}
+
+[data-bs-theme="dark"] a {
+  color: #4a9eff;
+}
+
+[data-bs-theme="dark"] a:hover {
+  color: #80b9ff;
+}
+
+[data-bs-theme="dark"] .alert {
+  background-color: #2a3038;
+  border-color: #3a4250;
+  color: #e0e0e0;
+}
+
+[data-bs-theme="dark"] .accordion-button {
+  background-color: #252d38;
+  color: #e0e0e0;
+  border: 1px solid #3a4250;
+}
+
+[data-bs-theme="dark"] .accordion-button:not(.collapsed) {
+  background-color: #2a3a48;
+  color: #ffffff;
+}
+
+[data-bs-theme="dark"] .accordion-button:focus {
+  border-color: #0f4c75;
+  box-shadow: 0 0 0 0.25rem rgba(15, 76, 117, 0.25);
+}
+
+[data-bs-theme="dark"] .form-control,
+[data-bs-theme="dark"] .form-select {
+  background-color: #252d38;
+  border-color: #3a4250;
+  color: #e0e0e0;
+}
+
+[data-bs-theme="dark"] .form-control:focus,
+[data-bs-theme="dark"] .form-select:focus {
+  background-color: #2a3a48;
+  border-color: #0f4c75;
+  color: #e0e0e0;
+}
+
+[data-bs-theme="dark"] .nav-link {
+  color: #e0e0e0;
+}
+
+[data-bs-theme="dark"] .nav-link:hover,
+[data-bs-theme="dark"] .nav-link.active {
+  color: #0f4c75;
+}
+
+[data-bs-theme="dark"] .badge {
+  background-color: #3a4250;
+  color: #e0e0e0;
+}
+
+[data-bs-theme="dark"] .btn-secondary {
+  background-color: #3a4250;
+  border-color: #3a4250;
+  color: #e0e0e0;
+}
+
+[data-bs-theme="dark"] .btn-secondary:hover {
+  background-color: #4a5260;
+  border-color: #4a5260;
+}
+
+// ===== CONTAINER CUSTOMIZATION =====
+.container {
+  max-width: $container-max-width;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+
+  @media (max-width: 768px) {
+    padding-left: $spacing-lg;
+    padding-right: $spacing-lg;
+  }
+
+  @media (max-width: 576px) {
+    padding-left: $spacing-md;
+    padding-right: $spacing-md;
+  }
+}
+
+// ===== TYPOGRAPHY DEFAULTS =====
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-base;
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-tight;
+  margin-bottom: 0.75rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: $line-height-tight;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.125rem;
+  color: $color-primary;
+}
+
+p {
+  color: $color-text-light;
+  font-size: 1rem;
+  line-height: $line-height-relaxed;
+  margin-bottom: $spacing-md;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// ===== MARATHI TEXT STYLING =====
+.marathi {
+  font-weight: $font-weight-semibold;
+  color: $color-text-dark;
+  line-height: $line-height-relaxed;
+}
+
+// ===== UTILITY ANIMATIONS =====
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out;
+}
+
+// ===== ACCESSIBILITY =====
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all $transition-fast;
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// ===== SMOOTHSCROLL BEHAVIOR =====
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
