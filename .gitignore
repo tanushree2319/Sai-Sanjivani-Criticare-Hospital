@@ -1,5 +1,4 @@
 node_modules/
-css/
 dist/
 .env
 .env.local
