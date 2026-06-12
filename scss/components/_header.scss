@@ -179,18 +179,18 @@
 
 // ===== NAVIGATION LINKS =====
 .nav {
-  gap: 1.5rem; // Clean spacing setup across links
+  gap: 0.5rem; // Clean spacing setup across links
 
 
 
 
   .nav-link {
     color: $color-white;
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: $font-weight-medium;
     opacity: 0.85;
     transition: all $transition-fast;
-    padding: 0.5rem 0;
+    // padding: 0.5rem 0;
     position: relative;
 
 

@@ -7,13 +7,62 @@
     <title>Our Doctors | Sai Sanjivani Criticare Hospital</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/main.css" />
-  </head>
+    </head>
   <body class="bg-soft">
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
     <div id="header-placeholder"></div>
 
     <main id="main-content" class="py-5">
+
+      <!-- ========================================
+           DOCTOR PROFILE SECTION
+           ======================================== -->
+      <section class="doctor-profile" id="doctors">
+        <div class="container">
+          <div class="row align-items-center g-5">
+            <div class="col-12 col-lg-6">
+              <div class="doctor-visual">
+                <div class="image-wrapper">
+                  <img src="assets/dr-sunil-chavan.webp" alt="Dr. Sunil Chavan, Expert Homoeopath at Sai Sanjivani Criticare in Kalyan" class="doc-img" />
+                  <div class="experience-badge">
+                    <span class="exp-num">25+</span>
+                    <span class="exp-text">Years of<br />Excellence</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="doctor-text">
+                <span class="section-subtitle">Chief Medical Director</span>
+                <h2>Dr. Sunil Chavan</h2>
+                <h3 class="doc-credentials">BHMS, AYUSH Homoeopath</h3>
+
+                <div class="trust-marks">
+                  <span class="verified-tag">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 11.08V12a10 10 10 0 1 1-5.93-9.14"></path>
+                      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    Medical Registration Verified
+                  </span>
+                </div>
+
+                <p>
+                  With over 25 years of clinical expertise, Dr. Sunil Chavan leads the medical team at Sai Sanjivani Criticare in Kalyan City. He completed his BHMS from Dr. Kavihar Homeopathic Medical College, Karad in 1993.
+                </p>
+                <p>
+                  Dedicated to holistic and patient-first healthcare, Dr. Chavan combines his profound medical experience with a compassionate approach, ensuring every patient receives the highest standard of personalized treatment.
+                </p>
+
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div class="container mt-5 pt-4">
         <div class="text-center mb-5">
           <span class="badge service-badge mb-2">Our Team</span>
@@ -40,57 +89,7 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Cardiology -->
-    <div class="doctor-dept-group" id="dept-cardiology">
-      <h2 class="dept-title">Cardiology</h2>
-      <div class="row g-4 mb-5">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="doctor-card-premium">
-            <div class="doc-avatar-container">
-              <div class="doc-initial-avatar">PP</div>
-            </div>
-            <div class="doc-card-body">
-              <h3>Dr. Pankaj Patil (Clinic)</h3>
-              <span class="badge-dept">Cardiologist</span>
-              <div class="doc-actions-grid">
-                <button class="btn-doc-book" onclick="openAppointmentModal('Dr. Pankaj Patil (Clinic)', 'Cardiology')">Book Appointment</button>
-                <a href="tel:+919766054902" class="btn-doc-call">📞 Call</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Anesthesia -->
-    <div class="doctor-dept-group" id="dept-anesthesia">
-      <h2 class="dept-title">Anesthesia</h2>
-      <div class="row g-4 mb-5">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="doctor-card-premium">
-            <div class="doc-avatar-container">
-              <div class="doc-initial-avatar">TG</div>
-            </div>
-            <div class="doc-card-body">
-              <h3>Dr. Tushar Gavade</h3>
-              <span class="badge-dept">Anesthesiologist</span>
-              <div class="doc-actions-grid">
-                <button class="btn-doc-book" onclick="openAppointmentModal('Dr. Tushar Gavade', 'Anesthesia')">Book Appointment</button>
-                <a href="tel:+917709052198" class="btn-doc-call">📞 Call</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- General Physician -->
-    <div class="doctor-dept-group" id="dept-physician">
-      <h2 class="dept-title">General Physician</h2>
-      <div class="row g-4 mb-5">
         <div class="col-12 col-md-6 col-lg-4">
           <div class="doctor-card-premium">
             <div class="doc-avatar-container">
@@ -100,7 +99,7 @@
               <h3>Dr. Mahesh Sonkar</h3>
               <span class="badge-dept">General Physician</span>
               <div class="doc-actions-grid">
-                <button class="btn-doc-book" onclick="openAppointmentModal('Dr. Mahesh Sonkar', 'General Physician')">Book Appointment</button>
+                <button class="btn-doc-book" onclick="openAppointmentModal('Dr. Mahesh Sonkar', 'General Consultation & Medicines')">Book Appointment</button>
                 <a href="tel:+918976001802" class="btn-doc-call">📞 Call</a>
               </div>
             </div>
@@ -109,6 +108,7 @@
       </div>
     </div>
 
+    
     <!-- Gynecology & Obstetrics -->
     <div class="doctor-dept-group" id="dept-gynecology">
       <h2 class="dept-title">Gynecology & Obstetrics</h2>
@@ -391,10 +391,7 @@
       </div>
     </div>
 
-      </div>
-    </div>
-
-    <!-- Oncosurgery -->
+      <!-- Oncosurgery -->
     <div class="doctor-dept-group" id="dept-oncosurgery">
       <h2 class="dept-title">Oncosurgery (Cancer Specialty)</h2>
       <div class="row g-4 mb-5">
@@ -656,6 +653,50 @@
       </div>
     </div>
 
+    <!-- Cardiology -->
+    <div class="doctor-dept-group" id="dept-cardiology">
+      <h2 class="dept-title">Cardiology</h2>
+      <div class="row g-4 mb-5">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="doctor-card-premium">
+            <div class="doc-avatar-container">
+              <div class="doc-initial-avatar">PP</div>
+            </div>
+            <div class="doc-card-body">
+              <h3>Dr. Pankaj Patil (Clinic)</h3>
+              <span class="badge-dept">Cardiologist</span>
+              <div class="doc-actions-grid">
+                <button class="btn-doc-book" onclick="openAppointmentModal('Dr. Pankaj Patil (Clinic)', 'Cardiology')">Book Appointment</button>
+                <a href="tel:+919766054902" class="btn-doc-call">📞 Call</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Anesthesia -->
+    <div class="doctor-dept-group" id="dept-anesthesia">
+      <h2 class="dept-title">Anesthesia</h2>
+      <div class="row g-4 mb-5">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="doctor-card-premium">
+            <div class="doc-avatar-container">
+              <div class="doc-initial-avatar">TG</div>
+            </div>
+            <div class="doc-card-body">
+              <h3>Dr. Tushar Gavade</h3>
+              <span class="badge-dept">Anesthesiologist</span>
+              <div class="doc-actions-grid">
+                <button class="btn-doc-book" onclick="openAppointmentModal('Dr. Tushar Gavade', 'Anesthesia')">Book Appointment</button>
+                <a href="tel:+917709052198" class="btn-doc-call">📞 Call</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Diabetology -->
     <div class="doctor-dept-group" id="dept-diabetology">
       <h2 class="dept-title">Diabetology</h2>
@@ -695,21 +736,27 @@
   <select id="modalDepartment" class="form-select">
     <option value="" selected>-- Select Specialty (Optional) --</option>
     <option value="General Consultation & Medicines">General Consultation & Medicines</option>
-    <option value="Critical Care Medicine & ICU">Critical Care Medicine & ICU</option>
+    <option value="Critical Care">Critical Care Medicine & ICU</option>
     <option value="Laparoscopic & General Surgery">Laparoscopic & General Surgery</option>
     <option value="Orthopedic">Orthopedic</option>
     <option value="Neurosurgery">Neurosurgery</option>
-    <option value="Onco Surgery (Cancer Specialty)">Onco Surgery (Cancer Specialty)</option>
+    <option value="Oncosurgery">Onco Surgery (Cancer Specialty)</option>
+    <option value="Neurology">Neuro Physician</option>
+    <option value="Nephrology">Nephrology (Kidney Care)</option>
     <option value="Gynecology & Obstetrics">Gynecology & Obstetrics</option>
     <option value="Pediatrics (Child Care)">Pediatrics (Child Care)</option>
     <option value="Urology">Urology</option>
+    <option value="Pediatrics">Pediatrics</option>
     <option value="Plastic Surgery">Plastic Surgery</option>
-    <option value="Trauma & Emergency Care">Trauma & Emergency Care</option>
-    <option value="Psychiatric & Mental Health">Psychiatric & Mental Health</option>
-    <option value="Physiotherapy & Rehab">Physiotherapy & Rehab</option>
+    <option value="Psychiatric">Psychiatric & Mental Health</option>
+    <option value="Physiotherapy">Physiotherapy & Rehab</option>
     <option value="ENT Surgery">ENT Surgery</option>
-    <option value="Nephrology (Kidney Care)">Nephrology (Kidney Care)</option>
+    <option value="Chest Physician">Chest Physician</option>
     <option value="Ophthalmology (Eye Care)">Ophthalmology (Eye Care)</option>
+    <option value="Cardiology">Cardiology</option>
+    <option value="Anesthesia">Anesthesia</option>
+    <option value="Gastroenterology">Gastroenterology</option>
+    <option value="Diabetology">Diabetology</option>
   </select>
 </div>
 

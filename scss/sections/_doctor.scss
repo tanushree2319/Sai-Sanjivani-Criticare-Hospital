@@ -471,3 +471,34 @@
     }
   }
 }
+
+  /* ========================================
+   DOCTOR PROFILE - VISUAL ADJUSTMENTS
+   ======================================== */
+
+/* Ensure the image container aligns perfectly on the right side of the text */
+.doctor-visual {
+    display: flex;
+    justify-content: flex-end; /* This pushes the image toward the center margin */
+    position: relative; /* Essential for absolute positioning of the experience-badge */
+}
+
+/* Control the dimensions and quality of the specific doctor image */
+.doctor-visual .doc-img {
+    /* --- KEY FIX --- */
+    max-width: 500px;  /* This forces the huge image down to a sensible width */
+    height: auto;      /* Maintains proper proportions when scaling */
+    /* --------------- */
+
+    object-fit: cover; /* Keeps the crop sharp and focused on the face */
+    border-radius: 20px; /* Optional: adds polished, rounded corners */
+    display: block; /* Removes standard baseline spacing below images */
+}
+
+/* Ensure the '25+ Years' badge remains attached correctly 
+   to the imagewrapper after downsizing.
+*/
+.doctor-visual .image-wrapper {
+    position: relative;
+    display: inline-block; /* Forces the wrapper to shrink wrap the image */
+}
