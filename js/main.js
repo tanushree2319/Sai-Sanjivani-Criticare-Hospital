@@ -115,28 +115,34 @@ function initHeaderScripts() {
 }
 
 // ==========================================================================
-// DARK MODE TOGGLE (Bootstrap 5 Native Color Modes)
+// DARK MODE TOGGLE (Bootstrap 5 Native Color Modes with System Auto-Detect)
 // ==========================================================================
 function initDarkModeToggle() {
   const themeToggle = document.getElementById('themeToggle');
   if (!themeToggle) return;
 
-  // Get saved theme preference from localStorage
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  setTheme(savedTheme);
+  // 1. Check if user has an explicit manual preference saved
+  const savedTheme = localStorage.getItem('theme');
+  
+  // 2. Check if the user's OS/device is currently set to dark mode
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  // 3. Auto-select: Use saved preference first. If none exists, match system preferences. Fallback to light.
+  const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+  setTheme(initialTheme);
 
-  // Handle toggle button click
+  // Handle manual toggle button click (keeps manual override intact)
   themeToggle.addEventListener('click', () => {
     const currentTheme = document.documentElement.getAttribute('data-bs-theme') || 'light';
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
+    localStorage.setItem('theme', newTheme); // Save override choice
   });
 
-  // Listen for system preference changes
+  // Listen for live system preference changes (e.g., scheduled evening dark mode triggers)
   const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
   darkModeQuery.addEventListener('change', (e) => {
-    // Only update if user hasn't saved a preference
+    // Only alter live updates automatically if the user hasn't explicitly selected a toggle state
     if (!localStorage.getItem('theme')) {
       setTheme(e.matches ? 'dark' : 'light');
     }

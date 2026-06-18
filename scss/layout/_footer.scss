@@ -89,20 +89,57 @@
   }
 }
 
-// ===== ACCESSIBILITY COMPLIANT COPYRIGHT =====
+// ===== ACCESSIBILITY COMPLIANT COPYRIGHT & ATTRIBUTION =====
 .copyright {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 1.5rem;
-  padding-bottom: 0.5rem;
-  text-align: center;
+  // Let Bootstrap utilities handle margins, borders, and paddings from HTML cleanly
 
   p {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.5);
-    letter-spacing: 0.5px;
-  }
-}
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.55); // Elegant muted text for the hospital notice
+    letter-spacing: 0.3px;
 
-.footer-phone {
-  font-size: 1rem;
+    // FIX: Target specifically to override the generic p color selector above
+    &.developer-attribution {
+      color: #cbdbee; // Matches the soft high-contrast light blue look of your navigation links
+      font-size: 0.85rem;
+      opacity: 0.95;
+      transition: opacity $transition-fast ease;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      a {
+        color: $color-white; // Pure crisp white for your portfolio identity
+        text-decoration: none;
+        font-weight: $font-weight-semibold;
+        position: relative;
+        display: inline-block;
+        transition: color $transition-fast ease;
+
+        // Premium elegant underline reveal
+        &::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          transform: scaleX(0);
+          height: 1px;
+          bottom: -1px;
+          left: 0;
+          background-color: var(--attr-link-hover, #{$color-primary-light});
+          transform-origin: bottom right;
+          transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        &:hover {
+          color: var(--attr-link-hover, #{$color-primary-light});
+
+          &::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+          }
+        }
+      }
+    }
+  }
 }

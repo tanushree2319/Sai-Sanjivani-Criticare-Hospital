@@ -82,6 +82,9 @@
   --p-text-color : #555555;
 
   --doctor-section-h2 : #0f4c75;
+
+  /* Light Mode Link Hover Color */
+  --attr-link-hover: #C51F33;
 }
 
  
@@ -161,6 +164,9 @@
   --p-text-color : #afe1e1;
 
   --doctor-section-h2 : rgb(234, 246, 255);
+
+  /* Dark Mode Link Hover Color (Elegant Light Blue Accent) */
+  --attr-link-hover: rgb(183, 219, 246);
 }
 html {
   scroll-behavior: smooth;
