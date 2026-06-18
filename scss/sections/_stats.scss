@@ -4,9 +4,14 @@
 
 .stats-section {
   padding: $spacing-xxl 0;
-  background: $color-bg-soft;
+  background-color: var(--stat-bg);
   border-top: 1px solid $color-border-light;
   border-bottom: 1px solid $color-border-light;
+
+  [data-bs-theme="dark"] & {
+    background-color: var(--stat-bg);
+    // border-color: rgba(255, 255, 255, 0.08); // Swaps out light borders for soft dark borders
+  }
 }
 
 .stats-grid {
@@ -65,14 +70,14 @@
 .stat-number {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: $font-weight-bold;
-  color: $color-primary;
+  color: var(--stat-number);
   line-height: 1;
   margin-bottom: 0.625rem;
   letter-spacing: $letter-spacing-tight;
   transition: color $transition-fast;
 
   .stat-item:hover & {
-    color: $color-accent;
+    color: var(--stat-number);
   }
 
   @media (max-width: 576px) {
@@ -90,13 +95,13 @@
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: $letter-spacing-wider;
-  color: $color-text-light;
+  color: var(--stat-label);
   font-weight: $font-weight-semibold;
   margin: 0;
   transition: color $transition-fast;
 
   .stat-item:hover & {
-    color: $color-primary;
+    color: var(--stat-label);
   }
 
   @media (max-width: 576px) {
@@ -110,13 +115,3 @@
   display: inline-block;
 }
 
-// ===== STAT ITEM DARK BACKGROUND VARIANT (OPTIONAL) =====
-.stat-item.dark {
-  background: rgba(15, 76, 117, 0.05);
-  padding: $spacing-lg;
-  border-radius: $border-radius-md;
-
-  .stat-number {
-    color: $color-primary;
-  }
-}

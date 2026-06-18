@@ -28,7 +28,7 @@
   animation: fadeIn 1s ease-out;
 
   h2 {
-    color: $color-primary;
+    color: var(--about-text-h2);
     font-size: clamp(1.75rem, 4vw, 2.25rem);
     font-weight: $font-weight-semibold;
     margin-bottom: 1.5rem;
@@ -41,7 +41,7 @@
   }
 
   p {
-    color: $color-text-light;
+    color: var(--about-text-p);
     font-size: 1rem;
     line-height: $line-height-relaxed;
     margin-bottom: 1rem;
@@ -58,13 +58,13 @@
   // ===== MARATHI TEXT STYLING =====
   .marathi {
     font-size: 0.9375rem;
-    color: $color-primary-dark;
+    color: var(--about-text-marathi);
     font-weight: $font-weight-semibold;
     padding-left: 1rem;
     border-left: 3px solid $color-accent;
     margin: 1.5rem 0 2rem 0 !important;
     line-height: $line-height-relaxed;
-    background: rgba(50, 130, 184, 0.03);
+    background: #3282b808;
     padding: 0.75rem 0 0.75rem 1rem;
     border-radius: 0 $border-radius-sm $border-radius-sm 0;
 
@@ -106,5 +106,16 @@
     .about-img {
       order: -1;
     }
+  }
+}
+
+.btn-more {
+  // background: var(--about-text-btn-more);
+  color: var(--about-text-btn-more);
+  border: 1px solid var(--about-text-btn-main-border);
+
+  &:hover {
+    background: var(--about-text-btn-more);
+    color: var(--about-text-btn-more-hover);
   }
 }

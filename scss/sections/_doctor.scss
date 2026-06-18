@@ -4,7 +4,7 @@
 
 .doctor-profile {
   padding: $spacing-hero 0;
-  background: $color-white;
+  background-color: var(--doctor-section-bg);
 }
 
 .doctor-wrap {
@@ -111,7 +111,7 @@
   }
 
   h2 {
-    color: $color-primary;
+    color: var(--doctor-text-h2);
     font-size: clamp(1.75rem, 4vw, 2.25rem);
     font-weight: $font-weight-bold;
     margin: 0 0 0.3125rem 0;
@@ -128,7 +128,7 @@
   }
 
   p {
-    color: $color-text-light;
+    color: var(--doctor-text-p);
     font-size: 1rem;
     line-height: $line-height-relaxed;
     margin-bottom: 1.25rem;
@@ -146,7 +146,7 @@
 
 // ===== SECTION SUBTITLE =====
 .section-subtitle {
-  color: $color-accent;
+  color: var(--section-subtitle);
   font-size: 0.875rem;
   font-weight: $font-weight-semibold;
   text-transform: uppercase;
@@ -161,7 +161,7 @@
 
 // ===== DOCTOR CREDENTIALS =====
 .doc-credentials {
-  color: $color-text-light;
+  color: var(--doc-credentials);
   font-size: 1.125rem;
   font-weight: $font-weight-medium;
   margin: 0 0 1.25rem 0;
@@ -287,7 +287,7 @@
 
       p {
         font-size: $font-size-sm;
-        color: $color-text-light;
+        color: var(--doc-credentials);
         line-height: 1.5;
         margin-bottom: $spacing-md;
         flex-grow: 1;
@@ -338,7 +338,7 @@
   
   .dept-title {
     font-size: 1.35rem;
-    color: $color-primary-dark;
+    color: var(--doctor-section-h2);
     font-weight: $font-weight-bold;
     border-left: 4px solid $color-accent;
     padding-left: 12px;

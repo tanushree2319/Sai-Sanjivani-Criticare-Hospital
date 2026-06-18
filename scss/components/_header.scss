@@ -1,59 +1,48 @@
 // ========================================
-// HEADER & NAVIGATION (Bootstrap Hybrid)
+// HEADER & NAVIGATION (CSS Variables Approach)
 // ========================================
 
-
-
-
 .header {
-  // Layering is managed natively by Bootstrap's `.fixed-top` utility class
   z-index: 1000;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+  background: var(--hdr-bg-transparent);
   transition: all $transition-normal;
-  // padding: 1.125rem 0;
- 
-  // ========================================
-  // 1. MOBILE DEFAULTS (Screens under 1200px)
-  // Sticky & Solid: Automatically pushes the hero section down naturally
-  // ========================================
+  
+  // 1. MOBILE DEFAULTS
   position: sticky;
   top: 0;
-  background: rgba(255, 255, 255, 0.98);
+  background: var(--hdr-bg-solid);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   backdrop-filter: blur(12px);
   padding: 0.45rem 0;
-  border-bottom-color: rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid var(--hdr-border-solid);
 
+  // CHANGE THIS: Remove the border entirely instead of just changing color
+    border-bottom: none;
 
-
-
-  // ========================================
-  // 2. DESKTOP OVERRIDES (Screens 1200px and up)
-  // Fixed & Transparent: Slides cleanly over the background video
-  // ========================================
+  // 2. DESKTOP OVERRIDES
   @media (min-width: 1200px) {
     position: fixed;
     left: 0;
     right: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+    background: var(--hdr-bg-transparent);
     box-shadow: none;
     backdrop-filter: none;
     padding: 1.125rem 0;
     border-bottom-color: transparent;
-   
+    
     // ===== MORPHING SOLID STATE =====
-  // Using `:has(.show)` forces the menu background to remain solid while the mobile drawer is expanded
-  &:hover,
-  &.scrolled,
-  &:has(.show) {
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-    backdrop-filter: blur(12px);
-    padding: 0.75rem 0;
-    border-bottom-color: rgba(0, 0, 0, 0.05);
+    &:hover,
+    &.scrolled,
+    &:has(.show) {
+      background: var(--hdr-bg-solid);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      backdrop-filter: blur(12px);
+      padding: 0.75rem 0;
+      border-bottom-color: var(--hdr-border-solid);
+    }
   }
 }
-}
+
 // ===== BRAND IDENTITY =====
 .brand {
   display: flex;
@@ -62,18 +51,12 @@
   text-decoration: none;
 }
 
-
-
-
 .brand-logo {
   width: 46px;
   height: 46px;
   border-radius: $border-radius-circle;
   object-fit: contain;
   transition: transform $transition-fast;
-
-
-
 
   .header:hover &,
   .header.scrolled &,
@@ -82,168 +65,89 @@
   }
 }
 
-
-
-
 .brand-text {
   display: flex;
   flex-direction: column;
   line-height: 1.2;
 
-
-
-
   h2 {
     margin: 0;
     font-size: 1.25rem;
     font-weight: $font-weight-bold;
-   
-    // 1. MOBILE DEFAULT: Dark text to stand out against the solid white mobile header background
-    color: $color-text-dark;
-   
     letter-spacing: -0.3px;
     transition: color $transition-fast;
+    color: var(--hdr-brand-title); // Default Mobile & Solid
+    
+    @media (max-width: 420px) { font-size: 1.05rem; }
 
+    // Desktop Transparent (Always white regardless of mode)
+    @media (min-width: 1200px) { color: $color-white; }
 
-
-
-    // Responsive tweak: Shrink slightly on small screens to fit the row
-    @media (max-width: 420px) {
-      font-size: 1.05rem;
-    }
-
-
-
-
-    // 2. DESKTOP OVERRIDE: Turn white on large viewports because the header background starts dark/transparent
-    @media (min-width: 1200px) {
-      color: $color-white;
-    }
-
-
-
-
-    // Turns into your accent/primary color when hovered or active
-    .header:hover &,
-    .header.scrolled &,
-    .header:has(.show) & {
-      color: $color-primary;
+    // Desktop Solid
+    .header:hover &, .header.scrolled &, .header:has(.show) & {
+      color: var(--hdr-brand-title);
     }
   }
 
-
-
-
   span {
     font-size: 0.75rem;
-
-
-
-
-    // 3. MOBILE DEFAULT: Muted dark grey text for small screens
-    color: #6c757d;
-   
     text-transform: uppercase;
     letter-spacing: $letter-spacing-wide;
     transition: color $transition-fast;
+    color: var(--hdr-brand-subtitle); // Default Mobile & Solid
+    
+    @media (max-width: 420px) { font-size: 0.65rem; }
 
+    // Desktop Transparent
+    @media (min-width: 1200px) { color: #cfd8dc; }
 
-
-
-    // Responsive tweak: Shrink slightly on small screens
-    @media (max-width: 420px) {
-      font-size: 0.65rem;
-    }
-
-
-
-
-    // 4. DESKTOP OVERRIDE: Soft light blue-grey color on dark transparent desktop backgrounds
-    @media (min-width: 1200px) {
-      color: #cfd8dc;
-    }
-
-
-
-
-    .header:hover &,
-    .header.scrolled &,
-    .header:has(.show) & {
-      color: $color-text-light;
+    // Desktop Solid
+    .header:hover &, .header.scrolled &, .header:has(.show) & {
+      color: var(--hdr-brand-subtitle);
     }
   }
 }
 
-
-
-
 // ===== NAVIGATION LINKS =====
 .nav {
-  gap: 0.5rem; // Clean spacing setup across links
-
-
-
+  gap: 0.5rem;
 
   .nav-link {
-    color: $color-white;
     font-size: 0.8rem;
     font-weight: $font-weight-medium;
     opacity: 0.85;
     transition: all $transition-fast;
-    // padding: 0.5rem 0;
     position: relative;
-
-
-
-
+    
+    // Desktop Transparent State
+    color: $color-white; 
     &:hover, &.active {
       opacity: 1;
       color: $color-white;
     }
 
-
-
-
     &.active {
-      border-bottom: 2px solid #C51F33;
+      border-bottom: 2px solid var(--cta-emergency-bg);
     }
 
-
-
-
-    // Dropdown view styling adjustments for mobile/tablet contexts
     @media (max-width: 991.98px) {
       padding: 0.75rem $spacing-sm;
       border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-     
       &.active {
-        border-bottom: 1px solid #C51F33;
+        border-bottom: 1px solid var(--cta-emergency-bg);
         background: rgba(197, 31, 51, 0.03);
       }
     }
 
-
-
-
-    // ===== LINK COLOR CHANGEOVER WHEN NAVIGATION GOES SOLID =====
+    // Desktop Solid State Changeover
     .header:hover &,
     .header.scrolled &,
     .header:has(.show) & {
-      color: $color-text-dark;
-
-
-
-
-      &:hover, &.active {
-        color: $color-primary;
-      }
+      color: var(--hdr-nav-link);
+      &:hover, &.active { color: var(--hdr-nav-link-hover); }
     }
   }
 
-
-
-
-  // Inside-drawer custom navigation action item for mobile users
   .mobile-book-link {
     background: $color-primary;
     color: $color-white !important;
@@ -252,36 +156,23 @@
   }
 }
 
-
-
-
 // ===== INTERACTIVE BURGER ICON OVERRIDES =====
 .navbar-toggler {
   border: none;
   padding: 0.5rem;
- 
-  &:focus {
-    box-shadow: none;
-  }
+  &:focus { box-shadow: none; }
 
   .navbar-toggler-icon {
-    // 1. MOBILE DEFAULT: Dark lines against the solid white mobile header
-    filter: none;
+    filter: none; // Mobile Solid state
     transition: filter $transition-fast;
-   
-    // 2. DESKTOP OVERRIDE: Crisp white lines over the transparent video background
-    @media (min-width: 1200px) {
-      filter: invert(1);
-    }
-    .header:hover &,
-    .header.scrolled &,
-    .header:has(.show) & {
-      filter: none; // Restores default appearance once the header transitions to a solid white backdrop
+    
+    @media (min-width: 1200px) { filter: invert(1); } // Desktop Transparent state
+    
+    .header:hover &, .header.scrolled &, .header:has(.show) & {
+      filter: none; 
     }
   }
 }
-
-
 
 // ===== CALL TO ACTION HOVER MATRIX =====
 .cta {
@@ -289,7 +180,7 @@
   align-items: center;
   gap: 0.5rem;
 
-a {
+  a {
     padding: 0.55rem 1.15rem;
     text-decoration: none;
     font-size: 0.875rem;
@@ -299,13 +190,10 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
-    // FIXES DISTORTION: Prevents the emoji and text from breaking into two rows
     white-space: nowrap;
 
-
     @media (max-width: 420px) {
-      padding: 0.5rem 0.85rem; // Slightly tighter padding on mobile
+      padding: 0.5rem 0.85rem;
       font-size: 0.8rem;
     }
   }
@@ -313,136 +201,93 @@ a {
   .emergency-cta {
     background: rgba(197, 31, 51, 0.15);
     color: #ff4d6d;
-    border: 2px solid #C51F33;
+    border: 2px solid var(--cta-emergency-bg);
     backdrop-filter: blur(4px);
 
-    .header:hover &,
-    .header.scrolled &,
-    .header:has(.show) & {
-      background: #C51F33;
+    .header:hover &, .header.scrolled &, .header:has(.show) & {
+      background: var(--cta-emergency-bg); // Use variable
       color: $color-white;
-       &:hover {
+      &:hover{ background: var(--cta-emergency-hover); // Use hover variable
       box-shadow: $shadow-emergency;
-    }
-    }
+    }}
 
     @media (max-width: 1200px ) {
-      background: #C51F33;
+      background: var(--cta-emergency-bg);
       color: $color-white;
-       &:hover {
-      box-shadow: $shadow-emergency;
+      &:hover { box-shadow: $shadow-emergency; }
     }
-    }
-
   }
-  
 
   .book {
-    background: rgba(255, 255, 255, 0.95);
-    color: $color-primary-dark;
+  // Default State mapping to CSS Variables
+  background-color: var(--cta-book-bg);
+  color: var(--cta-book-text);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  
 
-    .header:hover &,
-    .header.scrolled &,
-    .header:has(.show) & {
-      background: $color-primary;
-      color: $color-white;
-      &:hover { background: $color-primary-dark; }
+  &:hover { 
+    background-color: var(--cta-book-hover);
+    color: var(--cta-book-text-hover, var(--cta-book-text));
+    // If you need the text color to change to white on hover in dark mode, add a variable rule here
+  }
+
+  // ===== LARGE DESKTOP OVERRIDES (Transparent vs Solid States) =====
+    @media (min-width: 1200px) {
+      // 1. Force the transparent state to look identical in BOTH modes
+      // Overriding the dark-mode variable inversion on the video background
+      background-color: #0f4c75 !important; // Hardcoded light-mode primary
+      color: #ffffff !important;
+
+      &:hover {
+        background-color: #0a314d !important; // Hardcoded light-mode hover
+        color: #ffffff !important;
+      }
+
+      // 2. Revert back to using standard theme variables when header becomes solid
+      .header:hover &, 
+      .header.scrolled &, 
+      .header:has(.show) & {
+        background-color: var(--cta-book-bg) !important;
+        color: var(--cta-book-text) !important;
+        
+        &:hover { 
+          background-color: var(--cta-book-hover) !important; 
+          color: var(--cta-book-text-hover, var(--cta-book-text)) !important; 
+        }
+      }
     }
-
-    @media (max-width: 1200px ) {
-      background: $color-primary;
-      color: $color-white;
-      &:hover { background: $color-primary-dark; }
+  // Responsive Breakpoint State
+  @media (max-width: 1199.98px) {
+    background-color: var(--cta-book-bg);
+    color: var(--cta-book-text);
+    
+    &:hover { 
+      background-color: var(--cta-book-hover); 
+      color: var(--cta-book-text-hover, var(--cta-book-text));
     }
   }
+}
 }
 
 // ===== THEME TOGGLE BUTTON =====
 .theme-toggle {
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  color: $color-text-dark !important;
+  border: 0.5px solid var(--hdr-toggle-border) !important;
+  color: var(--hdr-toggle-color) !important;
   padding: 0.375rem 0.625rem;
   font-size: 1rem;
   transition: all $transition-fast;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: var(--hdr-toggle-bg-hover);
   }
 
   @media (min-width: 1200px) {
     color: $color-white !important;
     border-color: rgba(255, 255, 255, 0.2) !important;
 
-    .header:hover &,
-    .header.scrolled &,
-    .header:has(.show) & {
-      color: $color-text-dark !important;
-      border-color: rgba(0, 0, 0, 0.1) !important;
-    }
-  }
-}
-
-// ===== DARK MODE SUPPORT =====
-[data-bs-theme="dark"] {
-  .header {
-    background: rgba(20, 25, 35, 0.98);
-    border-bottom-color: rgba(255, 255, 255, 0.1);
-
-    @media (min-width: 1200px) {
-      background: linear-gradient(to bottom, rgba(20, 25, 35, 0.85) 0%, rgba(20, 25, 35, 0) 100%);
-      
-      &:hover,
-      &.scrolled,
-      &:has(.show) {
-        background: rgba(20, 25, 35, 0.98);
-        border-bottom-color: rgba(255, 255, 255, 0.1);
-      }
-    }
-  }
-
-  .brand-text h2 {
-    color: #ffffff;
-
-    @media (min-width: 1200px) {
-      color: #ffffff;
-    }
-
-    .header:hover &,
-    .header.scrolled &,
-    .header:has(.show) & {
-      color: $color-primary;
-    }
-  }
-
-  .brand-text span {
-    color: #a0a0a0;
-
-    @media (min-width: 1200px) {
-      color: #a0a0a0;
-    }
-
-    .header:hover &,
-    .header.scrolled &,
-    .header:has(.show) & {
-      color: $color-text-light;
-    }
-  }
-
-  .nav-link {
-    color: #e0e0e0;
-
-    &:hover,
-    &.active {
-      color: $color-primary;
-    }
-  }
-
-  .theme-toggle {
-    color: #e0e0e0 !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+    .header:hover &, .header.scrolled &, .header:has(.show) & {
+      color: var(--hdr-toggle-color) !important;
+      border-color: var(--hdr-toggle-border) !important;
     }
   }
 }
@@ -452,7 +297,7 @@ a {
   position: relative;
   width: 42px;
   height: 42px;
-  background-color: #C51F33; // Your theme's primary red
+  background-color: #C51F33;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
@@ -461,26 +306,13 @@ a {
   z-index: 1;
   box-shadow: 0 4px 15px rgba(197, 31, 51, 0.4);
 
-
-
-
   .phone-icon {
     font-size: 1.15rem;
     z-index: 2;
-    // Optional tilt effect to look like an active handset
     transform: rotate(-10deg);
-
-
-
-
-    // Forces standard emojis to shift towards a bright, clean white look
     filter: brightness(0) invert(1);
   }
 
-
-
-
-  // The pseudo-element or child span creating the pulsing ring ripple
   .pulse-ring {
     position: absolute;
     top: 0;
@@ -495,26 +327,11 @@ a {
   }
 }
 
-
-
-
-// ===== CSS PULSE ANIMATION =====
 @keyframes phone-ring-pulse {
-  0% {
-    transform: scale(0.95);
-    opacity: 0.8;
-  }
-  50% {
-    opacity: 0.5; // Controls the peak intensity mid-wave
-  }
-  100% {
-    transform: scale(1.6); // How far out the ringing ripple travels
-    opacity: 0;
-  }
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { opacity: 0.5; }
+  100% { transform: scale(1.6); opacity: 0; }
 }
-
-
-
 
 // ===== MOBILE MENU (CENTERED FLOATING ISLAND UI) =====
 @media (max-width: 1199.98px) {
@@ -522,79 +339,72 @@ a {
     position: absolute;
     top: 100%;
     left: 50%;
-    transform: translateX(-50%); // Perfectly centers the card horizontally
-    width: 92%; // Gives it a slight margin on very small mobile screens
-    max-width: 340px; // Prevents it from getting too wide on tablets
-    margin-top: 0.5rem; // Adds a clean gap between the header and the menu card
-   
-    background: rgba(255, 255, 255, 0.98);
+    transform: translateX(-50%);
+    width: 92%;
+    max-width: 340px;
+    margin-top: 0.5rem;
+    
+    background: var(--hdr-mobile-menu-bg);
     backdrop-filter: blur(15px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    // box-shadow: var(--hdr-mobile-menu-shadow);
+    border: 1px solid var(--hdr-mobile-menu-border);
     padding: 1.5rem 1rem;
-    border-radius: 1.5rem;
+    // border-radius: 1.5rem;
     transition: all 0.3s ease-in-out;
-   
+    
     .nav {
       flex-direction: column;
       align-items: center;
-      gap: 1rem; // Slightly tighter gap for a compact card
+      gap: 1rem;
     }
-   
+    
     .nav-link {
-      color: $color-text-dark ; // FIX: Uncommented and mapped to your dark text!
+      background-color: var(--hdr-mobile-menu-bg);
+      border: 1px solid var(--hdr-mobile-menu-border);
+      box-shadow: var(--hdr-mobile-menu-shadow);
+      color: var(--hdr-mobile-link);
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      transition: all 0.25s ease;
       font-size: 1.1rem;
       padding: 0.5rem 1.5rem;
-      width: auto;
+      width: 255px;
       text-align: center;
       transition: all 0.2s;
 
       .mobile-book-link{
         color: $color-white !important;
       }
-     
+      
       &.active {
         border-bottom: none;
-        color: #C51F33 !important;
+        color: var(--hdr-mobile-link-active);
+        background-color: var(--hdr-mobile-link-active-bg);
         font-weight: 700;
-        background: rgba(197, 31, 51, 0.08);
+        // background: rgba(197, 31, 51, 0.08);
         border-radius: 50px;
       }
-     
-      // FIX: Clean, isolated hover state specifically for the mobile card
+      
       &:hover,
       &:active {
-        color: #C51F33 !important;
-        background: rgba(197, 31, 51, 0.04);
+        color: var(--hdr-mobile-link-hover);
+        background-color: var(--hdr-mobile-link-hover-bg);
         border-radius: 50px;
       }
     }
-   
+    
     .mobile-book-link {
-      width: 100%; // Makes the CTA button span the width of the card
+      width: 100%;
       max-width: 250px;
       padding: 0.75rem 2rem;
       margin-top: 0.5rem;
-      border-radius: 50px;
-      box-shadow: 0 4px 15px rgba(197, 31, 51, 0.25);
+      // border-radius: 50px;
+     color: var(--hdr-nav-link) !important;
       transition: transform 0.2s;
-     
+      
       &:hover {
         transform: translateY(-2px);
       }
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

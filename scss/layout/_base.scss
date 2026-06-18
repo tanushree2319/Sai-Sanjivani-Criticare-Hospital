@@ -2,6 +2,166 @@
 // BASE STYLES & TYPOGRAPHY
 // ========================================
 
+// ========================================
+// GLOBAL CSS VARIABLES FOR THEME SWITCHING
+// ========================================
+
+:root {
+  // Header Solid State (Mobile default, Desktop scrolled)
+  --hdr-bg-solid: rgba(255, 255, 255, 0.98);
+  --hdr-bg-transparent: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+  --hdr-border-solid: rgba(0, 0, 0, 0.05);
+
+  // Brand Text (Solid State)
+  --hdr-brand-title: #1b262c; // $color-text-dark
+  --hdr-brand-subtitle: #6c757d;
+
+  // Nav Links (Solid Desktop)
+  --hdr-nav-link: #1b262c; 
+  --hdr-nav-link-hover: #0f4c75; // $color-primary
+
+  // Mobile Menu Island (Light Mode Default)
+  --hdr-mobile-menu-bg: rgba(255, 255, 255, 0.98);
+  --hdr-mobile-menu-border: rgba(0, 0, 0, 0.08);
+  --hdr-mobile-menu-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  --hdr-mobile-link: #1b262c;
+  
+  // Sophisticated Slate-Blue Hover State
+  --hdr-mobile-link-hover: #0f4c75; 
+  --hdr-mobile-link-hover-bg: #eaf4fc; // Soft ice-blue tint
+  
+  // Clear, Trusted Active State
+  --hdr-mobile-link-active: #0a314d;
+  --hdr-mobile-link-active-bg: #d4e9f7; // Slightly deeper premium blue fill
+
+  // Theme Toggle Button
+  --hdr-toggle-color: #1b262c;
+  --hdr-toggle-border: rgba(0, 0, 0, 0.1);
+  --hdr-toggle-bg-hover: rgba(0, 0, 0, 0.05);
+
+  --cta-emergency-bg: #C51F33;
+  --cta-emergency-hover: #a3192a; /* Darker red */
+
+  // New Book Appointment Variables (Light Mode Default)
+  --cta-book-bg: #0f4c75;
+  --cta-book-text: #ffffff;
+  --cta-book-hover: #0a314d;
+  --cta-book-text-hover: #ffffff; // Added explicitly
+
+  // Trust Strip Section
+  --trust-strip-h4 : #0f4c75;
+  --trust-strip-p : #555555;
+  --trust-strip-bg-hover : #f8fbfe;
+
+  // About Section Tokens - Light Mode
+  --about-text-h2: #0f4c75;
+  --about-text-p: #555555;
+  --about-text-marathi: #0f4c75;
+  --about-text-btn-more : #0f4c75;
+  --about-text-btn-main-border : #0f4c75;
+  --about-text-btn-more-hover : rgb(234, 246, 255);
+
+  // Stats Section - Light Mode
+
+  --stat-number : #0f4c75;
+  --stat-label : #555555;
+  --stat-bg : #f8fbfe;
+
+  // texts colors for light mode
+  --text-p-color: #555555;
+
+  // Doctor Section - light Mode
+  --doctor-text-h2: #0f4c75;
+  --doctor-text-p: #555555;
+  --section-subtitle : #3282b8;
+  --doc-credentials : #636e72;
+  --doctor-section-bg : #ffffff;
+
+   
+
+  --p-text-color : #555555;
+
+  --doctor-section-h2 : #0f4c75;
+}
+
+ 
+
+[data-bs-theme="dark"] {
+  // DARK MODE VARIABLES
+  // These instantly replace the light mode colors above when the theme switches
+  
+  --hdr-bg-solid: rgba(20, 25, 35, 0.98);
+  --hdr-bg-transparent: linear-gradient(to bottom, rgba(20, 25, 35, 0.85) 0%, rgba(20, 25, 35, 0) 100%);
+  --hdr-border-solid: rgba(255, 255, 255, 0.1);
+
+  // Brand Text (Solid State)
+  --hdr-brand-title: rgb(234, 246, 255); // The exact light blue you requested
+  --hdr-brand-subtitle: #a0a0a0;
+
+  // Nav Links (Solid Desktop)
+  --hdr-nav-link: #ffffff;
+  --hdr-nav-link-hover: rgb(183, 219, 246);
+
+  // Mobile Menu Island (Dark Mode)
+  --hdr-mobile-menu-bg: rgba(25, 30, 40, 0.98);
+  --hdr-mobile-menu-border: rgba(255, 255, 255, 0.1);
+  --hdr-mobile-menu-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  --hdr-mobile-link: #e0e0e0;
+  
+  // Glowing Lighter-Blue Hover State for Dark Mode
+  --hdr-mobile-link-hover: rgb(183, 219, 246);
+  --hdr-mobile-link-hover-bg: rgba(183, 219, 246, 0.1); // Subtitle luminous tint
+  
+  // High Contrast Luminous Active State
+  --hdr-mobile-link-active: rgb(234, 246, 255);
+  --hdr-mobile-link-active-bg: rgba(15, 76, 117, 0.45); // Rich deep ocean blue block
+
+  // Theme Toggle Button
+  --hdr-toggle-color: #e0e0e0;
+  --hdr-toggle-border: rgba(255, 255, 255, 0.2);
+  --hdr-toggle-bg-hover: rgba(255, 255, 255, 0.1);
+
+  --cta-emergency-bg: #8c1624; /* Adjusted for dark mode contrast */
+  --cta-emergency-hover: #b31c2d;
+
+  // New Book Appointment Variables (Dark Mode)
+  --cta-book-bg: rgb(183, 219, 246);
+  --cta-book-text: #0f4c75; 
+  --cta-book-hover: #0f4c75;
+  --cta-book-text-hover: #ffffff;
+  
+  // Trust Strip Section
+  --trust-strip-h4 : rgb(234, 246, 255);
+  --trust-strip-p : #afe1e1;
+  --trust-strip-bg-hover : #262f41;
+
+  // About Section Tokens - Dark Mode
+  --about-text-h2: rgb(234, 246, 255);
+  --about-text-p: #afe1e1;
+  --about-text-marathi: rgb(234, 246, 255);
+  --about-text-btn-more : rgb(234, 246, 255);
+  --about-text-btn-main-border : rgb(234, 246, 255);
+  --about-text-btn-more-hover : #0f4c75;
+
+  // Stats Section - Light Mode
+  --stat-number : rgb(234, 246, 255);
+  --stat-label : #afe1e1;
+  --stat-bg : #262f41;
+
+  // Doctor Section - Dark Mode
+  --doctor-text-h2: rgb(234, 246, 255);
+  --doctor-text-p: #afe1e1;
+  --section-subtitle : rgb(159, 163, 167);
+  --doc-credentials : #636e72;;
+  --doctor-section-bg : #262f41;
+
+  // texts colors for light mode
+  --text-p-color: #afe1e1;
+
+  --p-text-color : #afe1e1;
+
+  --doctor-section-h2 : rgb(234, 246, 255);
+}
 html {
   scroll-behavior: smooth;
 }
@@ -60,26 +220,18 @@ body {
 
 [data-bs-theme="dark"] h1,
 [data-bs-theme="dark"] h2,
-[data-bs-theme="dark"] h3,
-[data-bs-theme="dark"] h4,
 [data-bs-theme="dark"] h5,
 [data-bs-theme="dark"] h6 {
-  color: #ffffff;
+  color: rgb(234, 246, 255);
 }
 
 [data-bs-theme="dark"] p,
-[data-bs-theme="dark"] span,
 [data-bs-theme="dark"] li {
-  color: #e0e0e0;
+  color:  var(--text-p-color);
 }
 
-[data-bs-theme="dark"] a {
-  color: #4a9eff;
-}
 
-[data-bs-theme="dark"] a:hover {
-  color: #80b9ff;
-}
+
 
 [data-bs-theme="dark"] .alert {
   background-color: #2a3038;
@@ -121,10 +273,10 @@ body {
   color: #e0e0e0;
 }
 
-[data-bs-theme="dark"] .nav-link:hover,
-[data-bs-theme="dark"] .nav-link.active {
-  color: #0f4c75;
-}
+// [data-bs-theme="dark"] .nav-link:hover,
+// [data-bs-theme="dark"] .nav-link.active {
+//   color: #0f4c75;
+// }
 
 [data-bs-theme="dark"] .badge {
   background-color: #3a4250;
@@ -175,7 +327,7 @@ h1 {
 h2 {
   font-size: clamp(1.75rem, 4vw, 2.25rem);
   font-weight: $font-weight-semibold;
-  color: $color-primary;
+  color: var(--about-text-h2);
 }
 
 h3 {
@@ -184,11 +336,12 @@ h3 {
 
 h4 {
   font-size: 1.125rem;
-  color: $color-primary;
+  color: var(--trust-strip-h4);
 }
 
+
 p {
-  color: $color-text-light;
+  color: var( --text-p-color);
   font-size: 1rem;
   line-height: $line-height-relaxed;
   margin-bottom: $spacing-md;
@@ -251,3 +404,33 @@ img {
     transition-duration: 0.01ms !important;
   }
 }
+
+[data-bs-theme=dark] .sub-white {
+  color: #e2f1fc;
+}
+
+[data-bs-theme=dark] .doctor-profile {
+  background-color: var(--doctor-section-bg);
+ }
+
+ .p-text-color {
+  color: var(--p-text-color);}
+
+  [data-bs-theme=dark] .p-text-color {
+  color: var(--p-text-color);}
+
+  .service-grey {
+    color: #555555 !important;
+  }
+
+  h4 .h3 .service-color-primary {
+    color: #0F4C75 !important;
+  }
+
+  .h4{
+    color: #0F4C75 !important;
+  }
+
+  .guide-primary {
+    color: #0F4C75 !important;
+  }

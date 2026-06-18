@@ -35,29 +35,23 @@
   // Modern subtle background lift on hover to support Quiet Luxury aesthetic
   &:hover {
     transform: translateY(-4px);
-    background-color: $color-bg-soft;
-
-    // Triggers color shift on heading when parent item is hovered
-    h4 {
-      color: $color-accent;
-    }
-
-    // Triggers smooth scaling on icon when parent item is hovered
-    .trust-icon {
-      transform: scale(1.15);
-    }
-  }
+    background-color: var(--trust-strip-bg-hover);
+}
 
   h4 {
-    color: $color-primary;
+    color: var(--trust-strip-h4);
     margin-bottom: 0.5rem;
     font-size: 1.125rem;
     font-weight: $font-weight-semibold;
     transition: color $transition-fast;
+
+    &:hover {
+      color: var(--trust-strip-h4);
+    }
   }
 
   p {
-    color: $color-text-light;
+    color: var(--trust-strip-p);
     font-size: 0.875rem;
     margin: 0;
     line-height: $line-height-base;
