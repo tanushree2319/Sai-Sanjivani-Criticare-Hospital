@@ -3,6 +3,18 @@
  */
 
 // ==========================================================================
+// 1. RUNS INSTANTLY: APPLY THEME IMMEDIATELY (Prevents Flash of Light Mode)
+// ==========================================================================
+(() => {
+  const savedTheme = localStorage.getItem('theme');
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  // If user has a saved choice, use it; otherwise, match their system screen mode automatically
+  const targetTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-bs-theme', targetTheme);
+})();
+
+// ==========================================================================
 // DYNAMIC COMPONENT LOADER (HEADER & FOOTER)
 // ==========================================================================
 document.addEventListener("DOMContentLoaded", async () => {
@@ -88,7 +100,6 @@ function initHeaderScripts() {
   }
 
   // --- 3. Window Scroll Monitor (Elegant Header Transition) ---
-  // --- 3. Window Scroll Monitor (Elegant Header Transition) ---
   const header = document.querySelector('.header');
   
   if (header) {
@@ -115,46 +126,42 @@ function initHeaderScripts() {
 }
 
 // ==========================================================================
-// DARK MODE TOGGLE (Bootstrap 5 Native Color Modes with System Auto-Detect)
+// DARK MODE BUTTON CONFIGURATION (Handles UI and Toggles Only)
 // ==========================================================================
 function initDarkModeToggle() {
   const themeToggle = document.getElementById('themeToggle');
   if (!themeToggle) return;
 
-  // 1. Check if user has an explicit manual preference saved
-  const savedTheme = localStorage.getItem('theme');
+  const icon = themeToggle.querySelector('.theme-icon');
   
-  // 2. Check if the user's OS/device is currently set to dark mode
-  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
-  // 3. Auto-select: Use saved preference first. If none exists, match system preferences. Fallback to light.
-  const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
-  setTheme(initialTheme);
+  // Synchronize the button icon text with whatever theme was loaded instantly at the top
+  const currentAppliedTheme = document.documentElement.getAttribute('data-bs-theme');
+  if (icon) {
+    icon.textContent = currentAppliedTheme === 'dark' ? '☀️' : '🌙';
+  }
 
-  // Handle manual toggle button click (keeps manual override intact)
+  // Handle manual toggle button click
   themeToggle.addEventListener('click', () => {
     const currentTheme = document.documentElement.getAttribute('data-bs-theme') || 'light';
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme); // Save override choice
+    
+    document.documentElement.setAttribute('data-bs-theme', newTheme);
+    localStorage.setItem('theme', newTheme); // Save manual override preference
+    
+    if (icon) {
+      icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    }
   });
 
-  // Listen for live system preference changes (e.g., scheduled evening dark mode triggers)
+  // Listen for live system changes while the page is open
   const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
   darkModeQuery.addEventListener('change', (e) => {
-    // Only alter live updates automatically if the user hasn't explicitly selected a toggle state
     if (!localStorage.getItem('theme')) {
-      setTheme(e.matches ? 'dark' : 'light');
+      const liveTheme = e.matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-bs-theme', liveTheme);
+      if (icon) icon.textContent = liveTheme === 'dark' ? '☀️' : '🌙';
     }
   });
-
-  function setTheme(theme) {
-    document.documentElement.setAttribute('data-bs-theme', theme);
-    const icon = themeToggle.querySelector('.theme-icon');
-    if (icon) {
-      icon.textContent = theme === 'dark' ? '☀️' : '🌙';
-    }
-  }
 }
 
 // ==========================================================================
