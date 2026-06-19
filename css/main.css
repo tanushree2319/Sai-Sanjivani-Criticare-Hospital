@@ -11928,6 +11928,7 @@ textarea.form-control-lg {
   --doctor-section-h2: #0f4c75;
   /* Light Mode Link Hover Color */
   --attr-link-hover: #C51F33;
+  --patient-guide-h3: #0f4c75;
 }
 
 [data-bs-theme=dark] {
@@ -11977,6 +11978,7 @@ textarea.form-control-lg {
   --doctor-section-h2: rgb(234, 246, 255);
   /* Dark Mode Link Hover Color (Elegant Light Blue Accent) */
   --attr-link-hover: rgb(183, 219, 246);
+  --patient-guide-h3: rgb(234, 246, 255);
 }
 
 html {
@@ -12235,6 +12237,14 @@ h4 .h3 .service-color-primary, .h4 .h3 .service-color-primary {
 }
 
 .guide-primary {
+  color: #0F4C75 !important;
+}
+
+.plunes-cashless {
+  color: var(--patient-guide-h3);
+}
+
+.service-color-primary {
   color: #0F4C75 !important;
 }
 
