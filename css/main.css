@@ -11929,6 +11929,8 @@ textarea.form-control-lg {
   /* Light Mode Link Hover Color */
   --attr-link-hover: #C51F33;
   --patient-guide-h3: #0f4c75;
+  --doctor-profile-bg: #ffffff;
+  --patient-guide-section-bg: #ffffff;
 }
 
 [data-bs-theme=dark] {
@@ -11979,6 +11981,8 @@ textarea.form-control-lg {
   /* Dark Mode Link Hover Color (Elegant Light Blue Accent) */
   --attr-link-hover: rgb(183, 219, 246);
   --patient-guide-h3: rgb(234, 246, 255);
+  --doctor-profile-bg: #ffffff;
+  --patient-guide-section-bg: #262f41;
 }
 
 html {
@@ -12246,6 +12250,10 @@ h4 .h3 .service-color-primary, .h4 .h3 .service-color-primary {
 
 .service-color-primary {
   color: #0F4C75 !important;
+}
+
+.patient-guide-section {
+  background-color: var(--patient-guide-section-bg) !important;
 }
 
 .footer {
