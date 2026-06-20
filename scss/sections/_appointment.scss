@@ -99,3 +99,15 @@
   //   }
   // }
 }
+
+.contact-text-color {
+  color: var(--contact-text-color) !important;
+}
+
+.contact-text-input-color {
+  color: var(--contact-text-input-color) !important;
+}
+
+input::placeholder {
+  color: var(--contact-text-input-color) !important;
+}

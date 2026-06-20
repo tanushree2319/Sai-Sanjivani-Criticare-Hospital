@@ -502,3 +502,8 @@
     position: relative;
     display: inline-block; /* Forces the wrapper to shrink wrap the image */
 }
+
+/* Ensures the department section title doesn't get hidden under the fixed navbar */
+[id^="dept-"] {
+  scroll-margin-top: 90px; 
+}

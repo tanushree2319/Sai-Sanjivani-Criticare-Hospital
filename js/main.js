@@ -266,7 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       const element = document.getElementById(`dept-${targetService}`);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         element.style.transition = 'background-color 0.5s ease';
         element.style.backgroundColor = 'rgba(50, 130, 184, 0.05)';
         setTimeout(() => element.style.backgroundColor = 'transparent', 2000);
@@ -280,10 +280,22 @@ document.addEventListener("DOMContentLoaded", () => {
     if (dptSelect) {
       // Map parameter variants to standard select value options safely
       const mapping = {
-        'laparoscopic & General Surgery': 'Laparoscopic & General Surgery',
-        'Orthopedic': 'Orthopedic',
+        'laparoscopic': 'Laparoscopic & General Surgery',
+        'orthopedic': 'Orthopedic',
         'neurosurgery': 'Neurosurgery',
-        'oncosurgery': 'Oncosurgery'
+        'oncosurgery': 'Onco Surgery (Cancer Specialty)',
+        'critical-care': 'Critical Care Medicine & ICU',
+        'gynecology': 'Gynecology & Obstetrics',
+        'pediatrics': 'Pediatrics (Child Care)',
+        'general-consultation': 'General Consultation & Medicines',
+        'urology': 'Urology',
+        'plastic-surgery': 'Plastic Surgery',
+        'trauma-emergency': 'Trauma & Emergency Care',
+        'psychiatric': 'Psychiatric & Mental Health',
+        'physiotherapy': 'Physiotherapy & Rehab',
+        'ent': 'ENT Surgery',
+        'nephrology': 'Nephrology (Kidney Care)',
+        'ophthalmology': 'Ophthalmology (Eye Care)'
       };
       if (mapping[targetService]) {
         dptSelect.value = mapping[targetService];
