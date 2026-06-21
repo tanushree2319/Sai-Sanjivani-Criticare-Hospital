@@ -12380,7 +12380,7 @@ h4 .h3 .service-color-primary, .h4 .h3 .service-color-primary {
   z-index: 1000;
   background: var(--hdr-bg-transparent);
   transition: all 0.4s ease;
-  position: sticky;
+  position: fixed;
   top: 0;
   background: var(--hdr-bg-solid);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
@@ -13435,6 +13435,12 @@ h4 .h3 .service-color-primary, .h4 .h3 .service-color-primary {
 }
 .hero-video::-webkit-media-controls {
   display: none;
+}
+
+@media (max-width: 1199.98px) {
+  body.home-page {
+    padding-top: 60px;
+  }
 }
 
 .trust-strip {

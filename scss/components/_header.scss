@@ -8,7 +8,7 @@
   transition: all $transition-normal;
   
   // 1. MOBILE DEFAULTS
-  position: sticky;
+  position: fixed;
   top: 0;
   background: var(--hdr-bg-solid);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);

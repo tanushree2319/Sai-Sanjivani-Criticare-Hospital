@@ -239,3 +239,9 @@
 .hero-video::-webkit-media-controls {
   display: none;
 }
+
+body.home-page {
+  @media (max-width: 1199.98px) {
+    padding-top: 60px; // Seamlessly offsets the document body below the fixed bar
+  }
+}
